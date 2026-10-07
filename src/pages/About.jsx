@@ -1,5 +1,5 @@
 import "./about.css";
- 
+
 /* ---------- Content (swap for your real copy) ---------- */
 const STUDIO = {
   est: "Est. 2012 · Your area · Nairobi",
@@ -46,7 +46,7 @@ const STUDIO = {
     caption: ["Artist name", "Founder & artist"],
   },
 };
- 
+
 /* Placeholder-aware image: pass `src` when you have a real photo */
 function Img({ src, alt, label, className = "" }) {
   return src ? (
@@ -57,14 +57,14 @@ function Img({ src, alt, label, className = "" }) {
     </div>
   );
 }
- 
+
 const Eyebrow = ({ children }) => (
   <p className="ab-eyebrow"><i className="ab-dash" />{children}</p>
 );
- 
+
 export default function About() {
   const { origin, philosophy, quote, name, artist } = STUDIO;
- 
+
   return (
     <main className="ab">
       {/* 1. Hero */}
@@ -75,7 +75,7 @@ export default function About() {
         </h1>
         <p className="ab-eyebrow ab-hero-meta"><i className="ab-dash" />{STUDIO.est}</p>
       </section>
- 
+
       {/* 2. Origin + timeline */}
       <section className="ab-origin">
         <div className="ab-wrap">
@@ -101,7 +101,7 @@ export default function About() {
           </ol>
         </div>
       </section>
- 
+
       {/* 3. Philosophy */}
       <section className="ab-phil ab-wrap">
         <div className="ab-phil-head">
@@ -121,7 +121,7 @@ export default function About() {
           ))}
         </ul>
       </section>
- 
+
       {/* 4. Full-bleed image band with quote */}
       <section className="ab-band">
         <Img className="ab-band-img" alt="The studio space" label="Placeholder · studio interior (wide)" />
@@ -131,7 +131,7 @@ export default function About() {
           <figcaption><i className="ab-dash" />{quote.by}</figcaption>
         </figure>
       </section>
- 
+
       {/* 5. The name */}
       <section className="ab-name">
         <div className="ab-wrap ab-name-grid">
@@ -150,7 +150,7 @@ export default function About() {
           </div>
         </div>
       </section>
- 
+
       {/* 6. The artist */}
       <section className="ab-artist ab-wrap">
         <figure className="ab-portrait">
@@ -174,4 +174,3 @@ export default function About() {
     </main>
   );
 }
- 
