@@ -1,4 +1,4 @@
-import "./about.css";
+import "./About.css";
 
 /* ---------- Content: every string below is a fill-in placeholder ---------- */
 const STUDIO = {
