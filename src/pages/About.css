@@ -1,4 +1,3 @@
-/* ============ Tokens: override these with your site's own ============ */
 .ab {
   --ab-bg: transparent;          /* hero + philosophy + artist background */
   --ab-bg-alt: rgba(0,0,0,.04); /* tinted origin section */
