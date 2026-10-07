@@ -29,24 +29,22 @@
 /* ---------- Phone ---------- */
 @media (max-width: 900px) {
 
-  /* Phone colour + type tokens. To keep the dark theme on phones,
-     change only the five colours (e.g. bg #0a0a0a, ink #f2f0ea,
-     muted #6f6f69, line #232323, clock #8d8c85). */
+  /* Phone tokens: all colours come from the same variables as desktop */
   .header {
     --hh: 64px;
-    --m-bg: #f7f6f2;
-    --m-ink: #1d211d;
-    --m-muted: #b0afa8;
-    --m-line: #e7e5de;
-    --m-clock: #8d8c85;
+    --m-bg: var(--bg);
+    --m-ink: var(--text);
+    --m-muted: #6f6f69;
+    --m-muted: color-mix(in srgb, var(--text) 45%, var(--bg));
+    --m-line: var(--line);
+    --m-clock: var(--m-muted);
     --m-gold: var(--gold, #c4a164);
     --m-serif: 'Cormorant Garamond', var(--serif), Georgia, serif;
     --m-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
     height: var(--hh);
-    background: var(--m-bg);
-    border-bottom: 1px solid var(--m-line);
-    /* backdrop-filter would trap the fixed full-screen menu inside the header */
+    /* same background and border as desktop (inherited); only the blur is
+       dropped, because backdrop-filter would trap the fixed full-screen menu */
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
@@ -59,7 +57,6 @@
   .header .logo {
     font: 400 1.45rem/1 var(--m-serif);
     letter-spacing: .03em;
-    color: var(--m-ink);
   }
 
   .header .clock {
