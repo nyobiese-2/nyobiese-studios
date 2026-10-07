@@ -21,6 +21,10 @@ const SERVICES = [
   { n: '05', title: 'Piercings', image: true, src: '', to: '/piercing' },
 ]
 
+/* Set `src` to the artist photo (e.g. '/shawn.jpg').
+   Leave it as '' to show the placeholder. */
+const ARTIST = { src: '' }
+
 export default function Home() {
   return (
     <>
@@ -122,6 +126,43 @@ export default function Home() {
               {s.image && <span className="svc-arrow" aria-hidden="true">↗</span>}
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* ===== Page 4: The artist ===== */}
+      <section className="artist">
+        <figure className="artist-photo">
+          {ARTIST.src ? (
+            <img src={ARTIST.src} alt="Shawn Kay Davies at work in the studio" />
+          ) : (
+            <div className="artist-placeholder">Image placeholder</div>
+          )}
+        </figure>
+
+        <div className="artist-body">
+          <p className="artist-eyebrow"><span /> Meet the artist</p>
+
+          <h2>
+            Shawn Kay
+            <em>Davies</em>
+          </h2>
+
+          <p className="artist-role">Founder · Tattoo artist · Nyobiese Studios</p>
+          <span className="artist-rule" aria-hidden="true" />
+
+          <blockquote className="artist-quote">
+            Every tattoo is drawn to grow with you, not fade against you.
+          </blockquote>
+
+          <p className="artist-text">
+            Fine line, botanical lettering, quiet symbolism. Custom work sketched
+            by hand and shaped in conversation before the machine ever starts.
+          </p>
+
+          <div className="artist-cta">
+            <Link to="/book" className="artist-btn">Book with Shawn →</Link>
+            <Link to="/gallery" className="artist-link">View portfolio</Link>
+          </div>
         </div>
       </section>
     </>
