@@ -1,4 +1,4 @@
-import "./About.css";
+import "./about.css";
 
 /* ---------- Content: every string below is a fill-in placeholder ---------- */
 const STUDIO = {
@@ -72,43 +72,7 @@ export default function About() {
   return (
     <main className="ab">
       {/* 1. Hero */}
-      <secimport "./About.css";
-
-/* ---------- Content (swap for your real copy) ---------- */
-const STUDIO = {
-  est: "Est. 2012 · Your area · Nairobi",
-  origin: {
-    year: "2012",
-    meta: ["Founded", "Nairobi", "Kenya"],
-    title: ["It started in a rented room", "with one machine."],
-    paragraphs: [
-      "Placeholder: how the studio began, who started it, and what the early days looked like.",
-      "Placeholder: the growth story — waiting list, first studio, permanent home.",
-      "Placeholder: the one principle that has never changed.",
-    ],
-    timeline: [
-      { year: "2012", label: "First machine" },
-      { year: "2016", label: "Waiting list" },
-      { year: "2020", label: "First studio" },
-      { year: "2024", label: "Permanent home" },
-    ],
-  },
-  philosophy: {
-    title: ["Three words.", "One practice."],
-    intro: "Placeholder: a short line on why these words guide how the studio works.",
-    items: [
-      { word: "Patience", text: "Placeholder: what patience means in your consultations and process." },
-      { word: "Precision", text: "Placeholder: what precision means in your craft and training." },
-      { word: "Presence", text: "Placeholder: what presence means in how you work with clients." },
-    ],
-  },
-  quote: { text: "Placeholder quote about how the space was designed.", by: "Founder name · On designing the space" },
-  name: {
-    big: ["INK", "zen"],
-    defs: [
-      { term: "Ink", text: "Placeholder: first part of the name and its meaning." },
-      { term: "Zen", text: "Placeholder: second part of the name and its meaning." },
-tion className="ab-hero ab-wrap">
+      <section className="ab-hero ab-wrap">
         <Eyebrow>{labels.hero}</Eyebrow>
         <h1 className="ab-h1">
           {hero.title[0]}<br /><em>{hero.title[1]}</em>
