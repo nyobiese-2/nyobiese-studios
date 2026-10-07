@@ -133,7 +133,7 @@ export default function Home() {
       <section className="artist">
         <figure className="artist-photo">
           {ARTIST.src ? (
-            <img src={ARTIST.src} alt="Shawn Kay Davies at work in the studio" />
+            <img src={ARTIST.src} alt="Perez K Jordan at work in the studio" />
           ) : (
             <div className="artist-placeholder">Image placeholder</div>
           )}
