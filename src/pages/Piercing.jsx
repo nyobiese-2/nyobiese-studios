@@ -1,59 +1,59 @@
 import { useState } from "react";
 import "./Piercing.css";
 
-/* ---------- Content: every string is a fill-in placeholder ---------- */
+/* ---------- Content (edit freely) ---------- */
 const PAGE = {
   hero: {
-    label: "Label",
-    title: ["Headline", "second line", "third line italic."],
-    sub: "Short supporting sentence goes here.",
-    primary: { label: "Button label", href: "#" },
-    secondary: { label: "Link label", href: "#" },
+    label: "The piercing suite",
+    title: ["Calm hands.", "Careful work.", "Lasting adornment."],
+    sub: "A quiet, sterile room and an unhurried approach to every single piercing.",
+    primary: { label: "Book a session", href: "#" },
+    secondary: { label: "Follow on Instagram", href: "#" },
     facts: [
-      { big: "Value", small: "Label" },
-      { big: "Value", small: "Label" },
-      { big: "Value", small: "Label" },
+      { big: "5.0", small: "Client rating" },
+      { big: "100%", small: "Sterile setup" },
+      { big: "Appt.", small: "Bookings only" },
     ],
   },
   steps: {
-    label: "Label",
-    title: ["Section heading", "line two in italic."],
+    label: "How it works",
+    title: ["Four steps,", "from enquiry to healed."],
     items: [
-      { tag: "Tag", head: "Step title", text: "Step description goes here." },
-      { tag: "Tag", head: "Step title", text: "Step description goes here." },
-      { tag: "Tag", head: "Step title", text: "Step description goes here." },
-      { tag: "Tag", head: "Step title", text: "Step description goes here." },
+      { tag: "Step one", head: "The enquiry", text: "Tell us where you are thinking of, send any reference photos and ask your questions by form or WhatsApp. Nothing is too small to ask." },
+      { tag: "Step two", head: "The consultation", text: "We look at your anatomy, choose the jewellery together and mark the spot before anything begins. No rushing." },
+      { tag: "Step three", head: "The piercing", text: "The room is ready, the tools are sterile and single-use, and one steady movement places your jewellery." },
+      { tag: "Step four", head: "The healing", text: "You leave with written aftercare, can message us while you heal, and get follow-up checks at no extra charge." },
     ],
   },
-  gallery: { label: "Label", title: "Gallery heading", link: { label: "Link label", href: "#" }, count: 5 },
+  gallery: { label: "Recent pieces", title: "Our latest work.", link: { label: "See the full gallery", href: "#" }, count: 5 },
   materials: {
-    label: "Label",
-    title: ["Section heading", "line two in italic."],
-    intro: "Short intro goes here.",
+    label: "Jewellery",
+    title: ["Only the safest", "metals touch your skin."],
+    intro: "Everything we fit is chosen to heal well and stay comfortable for years to come.",
     tabs: [
-      { tab: "Tab", symbol: "Xx", tag: "Tag", head: "Item title", text: "Item description goes here." },
-      { tab: "Tab", symbol: "Xx", tag: "Tag", head: "Item title", text: "Item description goes here." },
-      { tab: "Tab", symbol: "Xx", tag: "Tag", head: "Item title", text: "Item description goes here." },
+      { tab: "Titanium", symbol: "Ti", tag: "Implant grade", head: "Implant titanium", text: "Light, hypoallergenic and available in a range of finishes. It is our first choice for every fresh piercing." },
+      { tab: "Steel", symbol: "Fe", tag: "Durable and body-safe", head: "Surgical steel 316L", text: "A strong, affordable steel that suits healed piercings and everyday wear without fuss." },
+      { tab: "Nickel-free", symbol: "Ni", tag: "Gentle on sensitive skin", head: "Our nickel-free promise", text: "We test every piece for nickel before it is stocked. If your skin reacts to metals, we will help you choose before we begin." },
     ],
   },
   person: {
-    label: "Label",
-    name: "Name",
-    role: "Role line",
-    quote: "Quote text goes here.",
-    primary: { label: "Button label", href: "#" },
+    label: "Your piercer",
+    name: "Piercer name",
+    role: "Resident body piercer",
+    quote: "Choosing jewellery is a small ritual of looking after yourself.",
+    primary: { label: "Book an appointment", href: "#" },
   },
   standards: {
-    label: "Label",
-    title: ["Section heading", "line two in italic."],
+    label: "Our promise",
+    title: ["Clear standards,", "no guesswork."],
     items: [
-      { head: "Standard title", text: "Description goes here." },
-      { head: "Standard title", text: "Description goes here." },
-      { head: "Standard title", text: "Description goes here." },
-      { head: "Standard title", text: "Description goes here." },
+      { head: "Quality jewellery", text: "Only implant-grade pieces, checked before they ever reach you." },
+      { head: "A clean room", text: "Sterile tools opened in front of you, with every surface cleaned between clients." },
+      { head: "Talk before we start", text: "A proper conversation first, so you know exactly what will happen." },
+      { head: "Support afterwards", text: "Clear written guidance, and we stay reachable for as long as you heal." },
     ],
   },
-  cta: { title: ["Closing heading", "line two in italic."], note: "Short note goes here.", button: { label: "Button label", href: "#" } },
+  cta: { title: ["Ready when you are.", "Book your session."], note: "By appointment only. Send us a message to find a time that suits you.", button: { label: "Book a session", href: "#" } },
 };
 
 /* Placeholder-aware image: pass `src` for a real photo */
