@@ -192,8 +192,23 @@
 
 /* ===== Page 3: Services ===== */
 .services {
-  background: #f1ebe3;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg);
   padding: 2.5rem 4vw 4rem;
+}
+
+/* same treatment as the hero background */
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, var(--bg) 0%, rgba(10,8,5,.55) 25%, rgba(10,8,5,.6) 75%, var(--bg) 100%),
+    url('/studio.jpg') center / cover no-repeat;
+  filter: sepia(.35) brightness(.8);
+  z-index: -1;
 }
 
 .services-head {
@@ -211,7 +226,7 @@
   font-size: .6rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: #6b675e;
+  color: var(--muted);
 }
 .services-eyebrow span {
   width: 28px;
@@ -223,7 +238,7 @@
   font-weight: 400;
   font-size: clamp(2.2rem, 4.5vw, 4rem);
   line-height: 1;
-  color: #1f241f;
+  color: #f5f1e8;
   margin: 0;
 }
 .services-intro {
@@ -231,7 +246,7 @@
   margin: 0;
   font-size: .85rem;
   line-height: 1.7;
-  color: #6b675e;
+  color: var(--muted);
 }
 
 .services-grid {
@@ -248,20 +263,21 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
-  background: rgba(0,0,0,.045);
-  color: #1f241f;
+  background: rgba(255,255,255,.05);
+  backdrop-filter: blur(2px);
+  color: #f5f1e8;
   text-decoration: none;
   overflow: hidden;
   transition: background .25s ease;
 }
-.svc:hover { background: rgba(0,0,0,.08); }
+.svc:hover { background: rgba(255,255,255,.1); }
 
 .svc-wide { grid-column: span 2; }
 
 .svc-num {
   font-size: .6rem;
   letter-spacing: .15em;
-  color: rgba(0,0,0,.3);
+  color: rgba(255,255,255,.35);
 }
 .svc h3 {
   font-family: var(--serif);
@@ -269,7 +285,7 @@
   font-size: clamp(1.6rem, 2.6vw, 2.4rem);
   line-height: 1.1;
   margin: 1.4rem 0 .5rem;
-  color: #1f241f;
+  color: #f5f1e8;
 }
 .svc-desc {
   margin: 0;
@@ -277,7 +293,7 @@
   letter-spacing: .12em;
   text-transform: uppercase;
   line-height: 1.7;
-  color: #8a867c;
+  color: var(--muted);
   max-width: 340px;
 }
 .svc-foot {
@@ -286,11 +302,11 @@
   align-items: center;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0,0,0,.12);
+  border-top: 1px solid var(--line);
   font-size: .75rem;
-  color: #6b675e;
+  color: var(--muted);
 }
-.svc-foot span:last-child { opacity: .5; }
+.svc-foot span:last-child { opacity: .6; }
 
 /* Image card (Piercings) */
 .svc-image {
