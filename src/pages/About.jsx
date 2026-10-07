@@ -1,4 +1,4 @@
-import "./about.css";
+import "./About.css";
 
 /* ---------- Content (swap for your real copy) ---------- */
 const STUDIO = {
