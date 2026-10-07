@@ -11,6 +11,16 @@ const WORK = [
   { label: 'Detail',       src: '' },
 ]
 
+/* Set `src` on the image card (e.g. '/services/piercing.jpg').
+   Leave it as '' to show the placeholder. */
+const SERVICES = [
+  { n: '01', title: 'Fine Line & Lettering', desc: 'Delicate linework, botanical detail and hand-drawn lettering', meta: 'From 2 hrs', to: '/tattoos/fine-line' },
+  { n: '02', title: 'Realism', desc: 'Lifelike depth, rendered in ink', meta: 'Half-day sessions', to: '/tattoos/realism' },
+  { n: '03', title: 'Blackwork & Geometric', desc: 'Bold, graphic, with an unmistakable presence', meta: 'Custom scale', to: '/tattoos/blackwork' },
+  { n: '04', title: 'Colour Tattoos', desc: 'Rich, long-lasting colour applied with care and intention', meta: 'Multi-session', to: '/tattoos/colour', wide: true },
+  { n: '05', title: 'Piercings', image: true, src: '', to: '/piercing' },
+]
+
 export default function Home() {
   return (
     <>
@@ -71,6 +81,46 @@ export default function Home() {
               )}
               <figcaption>{w.label}</figcaption>
             </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== Page 3: Services ===== */}
+      <section className="services">
+        <div className="services-head">
+          <div>
+            <p className="services-eyebrow"><span /> What we offer</p>
+            <h2>Services.</h2>
+          </div>
+          <p className="services-intro">
+            Five disciplines. One steady hand. Every piece is custom,
+            and nothing leaves the studio that wasn't drawn for you.
+          </p>
+        </div>
+
+        <div className="services-grid">
+          {SERVICES.map(s => (
+            <Link
+              key={s.n}
+              to={s.to}
+              className={`svc ${s.wide ? 'svc-wide' : ''} ${s.image ? 'svc-image' : ''}`}
+            >
+              {s.image && (
+                s.src
+                  ? <img className="svc-img" src={s.src} alt={s.title} />
+                  : <div className="svc-img svc-placeholder">Image placeholder</div>
+              )}
+              <span className="svc-num">{s.n}</span>
+              <h3>{s.title}</h3>
+              {!s.image && <p className="svc-desc">{s.desc}</p>}
+              {!s.image && (
+                <div className="svc-foot">
+                  <span>{s.meta}</span>
+                  <span aria-hidden="true">↗</span>
+                </div>
+              )}
+              {s.image && <span className="svc-arrow" aria-hidden="true">↗</span>}
+            </Link>
           ))}
         </div>
       </section>
