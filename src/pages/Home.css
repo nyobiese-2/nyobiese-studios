@@ -1,125 +1,90 @@
-.home {
-  position: relative;
-  min-height: calc(100vh - 84px);
+/* ===== The work section ===== */
+.work {
+  background: #f1ebe3;
+}
+
+.work-head {
   display: flex;
-  align-items: center;
-  padding: 4rem 4vw;
-  overflow: hidden;
-}
-
-/* Background photo + dark overlay (fades to solid at the bottom) */
-.home-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(10,8,5,.35) 0%, rgba(10,8,5,.55) 55%, var(--bg) 100%),
-    url('/studio.jpg') center / cover no-repeat;
-  filter: sepia(.35) brightness(.8);
-  z-index: 0;
-}
-
-.home-content {
-  position: relative;
-  z-index: 1;
+  align-items: flex-end;
+  justify-content: space-between;
   max-width: 1400px;
-  width: 100%;
   margin: 0 auto;
+  padding: 3rem 4vw 1.5rem;
 }
-
-.home h1 {
+.work-head h2 {
   font-family: var(--serif);
   font-weight: 400;
-  font-size: clamp(2.5rem, 7vw, 5.5rem); /* reduced */
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
-  color: #f5f1e8;
+  color: #1f241f;
   margin: 0;
 }
-.home h1 em {
-  font-style: italic;
-  color: var(--muted);
-}
-
-/* Stats row */
-.home-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 2.5rem;
-  font-size: .65rem; /* reduced */
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.home-stats span + span {
-  padding-left: 1.5rem;
-  border-left: 1px solid var(--line);
-}
-.home-stats b {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.1rem; /* reduced */
-  color: var(--gold);
-  margin-right: .3rem;
-  letter-spacing: 0;
-}
-
-/* Buttons */
-.home-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* Scroll cue */
-.home-scroll {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  margin-top: 2rem;
-  font-size: .6rem; /* reduced */
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.home-scroll span {
-  width: 36px;
-  height: 1px;
-  background: var(--line);
-}
-
-/* Vertical side label */
-.home-side {
-  position: absolute;
-  right: 2.5vw;
-  top: 50%;
-  transform: translateY(-50%) rotate(180deg);
-  writing-mode: vertical-rl;
+.work-link {
   font-size: .65rem;
-  letter-spacing: .25em;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--muted);
-  opacity: .6;
-  z-index: 1;
+  color: #4a4a44;
+  text-decoration: none;
 }
 
-/* WhatsApp floating button */
-.home-whatsapp {
-  position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #25d366;
-  color: #fff;
+/* Mosaic: large tile on the left, four tiles on the right */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  grid-template-rows: repeat(2, clamp(180px, 22vw, 320px));
+  gap: 3px;
+}
+.work-tile {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #1a1612;
+}
+.work-tile.tile-large {
+  grid-row: span 2;
+}
+.work-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder shown until you add an image */
+.work-placeholder {
+  width: 100%;
+  height: 100%;
   display: grid;
   place-items: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,.4);
-  z-index: 50;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.04) 25%, transparent 25%) 0 0 / 24px 24px,
+    #1a1612;
+}
+
+/* Label in the bottom-left corner */
+.work-tile figcaption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  z-index: 1;
 }
 
 @media (max-width: 900px) {
-  .home-side { display: none; }
-  .home-stats span + span { padding-left: 1rem; }
+  .work-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-auto-rows: 200px;
+  }
+  .work-tile.tile-large {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
 }
