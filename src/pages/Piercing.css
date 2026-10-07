@@ -9,7 +9,9 @@
   --pz-night: #15110d;
   --pz-gold: #b9a263;
   --pz-ink: #2a2d29;
-  --pz-muted: #7a766d;
+  --pz-muted: #5a564e;
+  --pz-ink-soft: #4a4a44;
+  --pz-gold-deep: #7c682d;
   --pz-line: rgba(42, 45, 41, .16);
   --pz-display: "Cormorant Garamond", Georgia, serif;
   --pz-body: "DM Sans", system-ui, sans-serif;
@@ -42,13 +44,19 @@
 .pz-display { font-size: clamp(48px, 7vw, 92px); line-height: 1.02; }
 .pz-title { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; }
 .pz-h3 { font-size: 24px; line-height: 1.2; margin: 6px 0 10px; }
-.pz em { font-style: italic; opacity: .7; }
+.pz em { font-style: italic; color: var(--pz-ink-soft); }
+.pz-title, .pz-h3, .pz-display { color: var(--pz-ink); font-weight: 400; }
+.pz-green .pz-title, .pz-green .pz-h3, .pz-green em, .pz-dark-photo .pz-display, .pz-dark-photo em { color: #f6f2ea; }
+.pz-dark-photo em, .pz-green em { color: #d9d3c4; }
+.pz-gold .pz-title, .pz-gold em { color: var(--pz-night); }
+.pz-gold em { opacity: 1; }
 .pz-label, .pz-tag, .pz-facts span, .pz-btn, .pz-textlink, .pz-tabs button { font-family: var(--pz-mono); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; }
-.pz-label { color: var(--pz-muted); margin-bottom: 14px; }
+.pz-label { color: var(--pz-ink-soft); margin-bottom: 14px; }
 .pz-label i { display: inline-block; width: 28px; height: 1px; background: var(--pz-gold); vertical-align: middle; margin-right: 12px; }
-.pz-tag { color: var(--pz-gold); }
-.pz-body { font-size: 14px; line-height: 1.85; color: var(--pz-muted); font-weight: 300; max-width: 46ch; }
-.pz-lead { font-size: 15px; line-height: 1.8; max-width: 46ch; margin: 20px auto 0; opacity: .8; }
+.pz-tag { color: var(--pz-gold-deep); }
+.pz-green .pz-tag, .pz-dark-photo .pz-tag { color: var(--pz-gold); }
+.pz-body { font-size: 14px; line-height: 1.85; color: var(--pz-muted); font-weight: 400; max-width: 46ch; }
+.pz-lead { font-size: 15px; line-height: 1.8; max-width: 46ch; margin: 20px auto 0; color: #e8e3d8; }
 .pz-narrow { margin-top: 18px; }
 
 /* ============ Shared layout ============ */
@@ -71,12 +79,12 @@
 .pz-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pz-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(21,17,13,.55), rgba(21,17,13,.88)); }
 .pz-hero-body { position: relative; align-self: center; text-align: center; padding: 140px 24px 40px; }
-.pz-hero-body .pz-label { color: rgba(246,242,234,.6); }
+.pz-hero-body .pz-label { color: rgba(246,242,234,.8); }
 .pz-facts { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.18); }
 .pz-facts li { padding: 22px 12px; text-align: center; border-left: 1px solid rgba(255,255,255,.12); }
 .pz-facts li:first-child { border-left: 0; }
 .pz-facts strong { display: block; font-size: 26px; color: var(--pz-gold); }
-.pz-facts span { opacity: .55; }
+.pz-facts span { color: rgba(246,242,234,.75); }
 
 /* ============ 2. Steps track ============ */
 .pz-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
@@ -99,23 +107,23 @@
 .pz-tabs button { background: transparent; border: 1px solid var(--pz-line); color: var(--pz-muted); padding: 12px 18px; cursor: pointer; }
 .pz-tabs button.is-on { border-color: var(--pz-gold); color: var(--pz-ink); background: rgba(255,255,255,.4); }
 .pz-panel { background: rgba(255,255,255,.45); border: 1px solid var(--pz-gold); padding: 48px 40px; min-height: 320px; }
-.pz-symbol { display: block; font-size: 64px; font-style: italic; color: var(--pz-gold); line-height: 1; margin-bottom: 20px; }
+.pz-symbol { display: block; font-size: 64px; font-style: italic; color: var(--pz-gold-deep); line-height: 1; margin-bottom: 20px; }
 
 /* ============ 5. Practitioner ============ */
 .pz-person { text-align: center; display: flex; flex-direction: column; align-items: center; }
-.pz-person .pz-label { color: rgba(241,238,230,.5); margin-top: 24px; }
+.pz-person .pz-label { color: rgba(241,238,230,.75); margin-top: 24px; }
 .pz-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; }
 .pz-person blockquote { max-width: 28ch; font-size: clamp(24px, 3vw, 34px); font-style: italic; line-height: 1.35; margin: 28px 0 36px; }
 
 /* ============ 6. Standards ============ */
 .pz-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
 .pz-checks li { display: flex; gap: 20px; padding: 28px 0; border-top: 1px solid var(--pz-line); }
-.pz-tick { flex: none; width: 28px; height: 28px; border: 1px solid var(--pz-gold); color: var(--pz-gold); display: grid; place-items: center; font-size: 12px; }
+.pz-tick { flex: none; width: 28px; height: 28px; border: 1px solid var(--pz-gold-deep); color: var(--pz-gold-deep); display: grid; place-items: center; font-size: 12px; }
 
 /* ============ 7. CTA ============ */
 .pz-cta { text-align: center; padding: clamp(64px, 9vw, 120px) 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.pz-on-gold em { opacity: .6; }
-.pz-cta p { font-size: 14px; max-width: 44ch; opacity: .8; }
+
+.pz-cta p { font-size: 14px; max-width: 44ch; color: var(--pz-night); }
 
 /* ============ Placeholder image ============ */
 .pz-ph { display: grid; place-items: center; background: linear-gradient(135deg, #2b2824, #4a443d); color: rgba(255,255,255,.5); font: 9px var(--pz-mono); letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 12px; }
