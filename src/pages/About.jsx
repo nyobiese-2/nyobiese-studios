@@ -1,6 +1,3 @@
-
-
-About · JSX
 import "./about.css";
  
 /* ---------- Content (swap for your real copy) ---------- */
