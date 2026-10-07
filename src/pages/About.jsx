@@ -1,57 +1,93 @@
+import { Link } from "react-router-dom";
 import "./About.css";
 
-/* ---------- Content: every string below is a fill-in placeholder ---------- */
+/* ---------- Edit these first ---------- */
+const ARTIST = "Artist Name";          // founder / tattoo artist
+const CITY = "Nairobi";
+const STUDIO_IMG = "/studio.jpg";      // put the file in /public, or set to "" for a placeholder
+const ARTIST_IMG = "";                 // e.g. "/artist.jpg" once the photo is in /public
+
+/* ---------- Page content ---------- */
 const STUDIO = {
   labels: {
-    hero: "Section label",
-    philosophy: "Section label",
-    name: "Section label",
-    artist: "Section label",
+    hero: "Our story",
+    philosophy: "The philosophy",
+    name: "The name",
+    artist: "The artist",
   },
   hero: {
-    title: ["Page heading line one", "line two in italic."],
-    meta: "Short meta line",
+    title: ["A studio shaped", "by stillness."],
+    meta: `Est. 2015 · ${CITY} · Kenya`,
   },
   origin: {
-    year: "Year",
-    meta: ["Label", "Label", "Label"],
-    title: ["Section heading line one", "line two in italic."],
-    paragraphs: ["Paragraph text goes here.", "Paragraph text goes here.", "Paragraph text goes here."],
+    year: "2015",
+    meta: ["Founded", CITY, "Kenya"],
+    title: ["It began in a borrowed room", "with a single machine."],
+    paragraphs: [
+      `${ARTIST} started tattooing in ${CITY} in 2015, working from a tiny borrowed room with one coil machine and a sketchbook crowded with botanical drawings. There was no logo, no website and no social media, only recommendations passed between friends and a name for being patient to a fault.`,
+      "A waiting list formed by 2018, and a small studio of our own followed in 2021. In 2024 Nyobiese Studios settled into its permanent home, a space built to feel more like a quiet reading room than a clinic.",
+      "From the very first day we have booked one client at a time, and that rule still stands.",
+    ],
     timeline: [
-      { year: "Year", label: "Milestone" },
-      { year: "Year", label: "Milestone" },
-      { year: "Year", label: "Milestone" },
-      { year: "Year", label: "Milestone" },
+      { year: "2015", label: "The first machine" },
+      { year: "2018", label: "A growing waitlist" },
+      { year: "2021", label: "A studio of our own" },
+      { year: "2024", label: "The permanent home" },
     ],
   },
   philosophy: {
-    title: ["Heading line one", "line two in italic."],
-    intro: "Short intro text goes here.",
+    title: ["Three words,", "one way of working."],
+    intro:
+      "These are not slogans. They are the questions we ask before agreeing to any piece, and before deciding whether someone is ready to wear it.",
     items: [
-      { word: "Title", text: "Description text goes here." },
-      { word: "Title", text: "Description text goes here." },
-      { word: "Title", text: "Description text goes here." },
+      {
+        word: "Patience",
+        text: "Consultations are never hurried. A design that takes two sittings to get right beats one rushed into a single afternoon. Every first meeting begins with listening, long before a pencil moves.",
+      },
+      {
+        word: "Precision",
+        text: "Fine, single-needle linework asks for a calm hand that few people cultivate. Years of apprenticeship came before the first paying client. The machine is the final step of the process, never the first.",
+      },
+      {
+        word: "Presence",
+        text: "Some clients arrive with no references at all, and that is welcome. The strongest work grows out of a conversation about light, memory and texture, not from a folder of saved screenshots.",
+      },
     ],
   },
-  quote: { text: "Quote text goes here.", by: "Attribution goes here" },
+  quote: {
+    text: "We built this room so that the second you take a seat, your shoulders drop.",
+    by: `${ARTIST} · On shaping the space`,
+  },
   name: {
-    big: ["Big", "word"],
+    big: ["NYO", "biese"],
     defs: [
-      { term: "Term", text: "Definition text goes here." },
-      { term: "Term", text: "Definition text goes here." },
-      { term: "Term", text: "Definition text goes here." },
+      {
+        term: "Ink",
+        text: "The medium itself: pigment held in liquid and placed beneath the skin through thousands of tiny punctures every minute. Permanent by nature.",
+      },
+      {
+        term: "Nyobiese",
+        text: "Placeholder: what the name means, where it comes from, and why it was chosen for the studio.",
+      },
+      {
+        term: "The studio",
+        text: "A place where craft and meaning meet, and every tattoo is handled with the seriousness of something that will last a lifetime.",
+      },
     ],
   },
   artist: {
-    title: ["Heading line one", "line two in italic."],
-    paragraphs: ["Paragraph text goes here.", "Paragraph text goes here."],
-    caption: ["Name", "Role"],
-    primary: { label: "Button label", href: "#" },
-    secondary: { label: "Link label", href: "#" },
+    title: ["One artist,", "one client at a time."],
+    paragraphs: [
+      "Nyobiese has never run guest residencies, added a second chair or hired junior tattooists. Every piece that leaves the studio was made by the same pair of hands.",
+      `It is a limit ${ARTIST} chose on purpose, and has protected each time growth was on the table.`,
+    ],
+    caption: [ARTIST, "Founder & artist"],
+    primary: { label: "Book your session →", to: "/book" },
+    secondary: { label: "View the work →", to: "/tattoos/fine-line" },
   },
 };
 
-/* Placeholder-aware image: pass `src` when you have a real photo */
+/* Placeholder-aware image: shows a block when no src is given */
 function Img({ src, alt, label, className = "" }) {
   return src ? (
     <img className={`ab-img ${className}`} src={src} alt={alt} />
@@ -128,7 +164,7 @@ export default function About() {
 
       {/* 4. Full-bleed image band with quote */}
       <section className="ab-band">
-        <Img className="ab-band-img" alt="Wide image" label="Placeholder · wide image" />
+        <Img src={STUDIO_IMG} className="ab-band-img" alt="Inside the studio" label="Placeholder · studio interior (wide)" />
         <div className="ab-band-shade" />
         <figure className="ab-wrap ab-quote">
           <blockquote>{quote.text}</blockquote>
@@ -158,7 +194,7 @@ export default function About() {
       {/* 6. The artist */}
       <section className="ab-artist ab-wrap">
         <figure className="ab-portrait">
-          <Img alt="Portrait" label="Placeholder · portrait image" />
+          <Img src={ARTIST_IMG} alt="The artist at work" label="Placeholder · artist portrait" />
           <figcaption>
             <i className="ab-dash" />
             <span>{artist.caption[0]}</span>
@@ -170,8 +206,8 @@ export default function About() {
           <h2 className="ab-h2">{artist.title[0]}<br /><em>{artist.title[1]}</em></h2>
           {artist.paragraphs.map((p, i) => <p className="ab-p" key={i}>{p}</p>)}
           <div className="ab-actions">
-            <a className="ab-btn" href={artist.primary.href}>{artist.primary.label}</a>
-            <a className="ab-link" href={artist.secondary.href}>{artist.secondary.label}</a>
+            <Link className="ab-btn" to={artist.primary.to}>{artist.primary.label}</Link>
+            <Link className="ab-link" to={artist.secondary.to}>{artist.secondary.label}</Link>
           </div>
         </div>
       </section>
