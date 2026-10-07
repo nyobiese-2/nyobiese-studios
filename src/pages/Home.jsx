@@ -1,22 +1,45 @@
 import { Link } from 'react-router-dom'
-import { STYLES } from '../styles'
 import './Home.css'
 
 export default function Home() {
   return (
     <section className="home">
-      <div className="home-art">Nyobiese</div>
-      <div>
-        <p className="eyebrow">Ink · Craft · Permanence</p>
-        <h1>Skin is our <em>Canvas</em></h1>
-        <div className="rule" />
-        <p className="home-text">Nyobiese Studios is a custom tattoo and piercing studio. Every piece is designed with you, drawn by hand and made to last.</p>
-        <div className="home-tags">
-          {STYLES.map(s => <Link key={s.slug} to={`/tattoos/${s.slug}`} className="tag">{s.name}</Link>)}
-          <Link to="/piercing" className="tag">Piercing</Link>
+      <div className="home-bg" aria-hidden="true" />
+
+      <div className="home-content">
+        <h1>
+          Stillness.<br />
+          Precision.<br />
+          <em>Expression.</em>
+        </h1>
+
+        <div className="home-stats">
+          <span><b>5.0</b> Google rating</span>
+          <span><b>13+</b> Years tattooing</span>
+          <span><b>100%</b> Custom work</span>
         </div>
-        <div className="home-cta"><Link to="/book" className="btn solid">Book now</Link></div>
+
+        <div className="home-cta">
+          <Link to="/book" className="btn solid">Book a session →</Link>
+          <Link to="/tattoos" className="btn">View the work</Link>
+        </div>
+
+        <div className="home-scroll"><span /> Scroll</div>
       </div>
+
+      <div className="home-side">Nyobiese Studios · Sanctuary 01 · Nairobi</div>
+
+      <a
+        className="home-whatsapp"
+        href="https://wa.me/254700000000"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.300c.2-.3.5-.3.700-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.600.2.3.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.1.5.1.6-.1l.9-1.100c.2-.2.4-.2.600-.1l1.900.9c.2.1.4.2.5.3.1.3.1.8-.1 1.400z"/>
+        </svg>
+      </a>
     </section>
   )
 }
