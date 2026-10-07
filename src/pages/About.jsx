@@ -1,5 +1,79 @@
 import "./About.css";
 
+/* ---------- Content: every string below is a fill-in placeholder ---------- */
+const STUDIO = {
+  labels: {
+    hero: "Section label",
+    philosophy: "Section label",
+    name: "Section label",
+    artist: "Section label",
+  },
+  hero: {
+    title: ["Page heading line one", "line two in italic."],
+    meta: "Short meta line",
+  },
+  origin: {
+    year: "Year",
+    meta: ["Label", "Label", "Label"],
+    title: ["Section heading line one", "line two in italic."],
+    paragraphs: ["Paragraph text goes here.", "Paragraph text goes here.", "Paragraph text goes here."],
+    timeline: [
+      { year: "Year", label: "Milestone" },
+      { year: "Year", label: "Milestone" },
+      { year: "Year", label: "Milestone" },
+      { year: "Year", label: "Milestone" },
+    ],
+  },
+  philosophy: {
+    title: ["Heading line one", "line two in italic."],
+    intro: "Short intro text goes here.",
+    items: [
+      { word: "Title", text: "Description text goes here." },
+      { word: "Title", text: "Description text goes here." },
+      { word: "Title", text: "Description text goes here." },
+    ],
+  },
+  quote: { text: "Quote text goes here.", by: "Attribution goes here" },
+  name: {
+    big: ["Big", "word"],
+    defs: [
+      { term: "Term", text: "Definition text goes here." },
+      { term: "Term", text: "Definition text goes here." },
+      { term: "Term", text: "Definition text goes here." },
+    ],
+  },
+  artist: {
+    title: ["Heading line one", "line two in italic."],
+    paragraphs: ["Paragraph text goes here.", "Paragraph text goes here."],
+    caption: ["Name", "Role"],
+    primary: { label: "Button label", href: "#" },
+    secondary: { label: "Link label", href: "#" },
+  },
+};
+
+/* Placeholder-aware image: pass `src` when you have a real photo */
+function Img({ src, alt, label, className = "" }) {
+  return src ? (
+    <img className={`ab-img ${className}`} src={src} alt={alt} />
+  ) : (
+    <div className={`ab-img ab-ph ${className}`} role="img" aria-label={alt}>
+      <span>{label}</span>
+    </div>
+  );
+}
+
+const Eyebrow = ({ children }) => (
+  <p className="ab-eyebrow"><i className="ab-dash" />{children}</p>
+);
+
+export default function About() {
+  const { labels, hero, origin, philosophy, quote, name, artist } = STUDIO;
+
+  return (
+    <main className="ab">
+      {/* 1. Hero */}
+      <secimport "./About.css";
+
 /* ---------- Content (swap for your real copy) ---------- */
 const STUDIO = {
   est: "Est. 2012 · Your area · Nairobi",
@@ -34,46 +108,12 @@ const STUDIO = {
     defs: [
       { term: "Ink", text: "Placeholder: first part of the name and its meaning." },
       { term: "Zen", text: "Placeholder: second part of the name and its meaning." },
-      { term: "Studio name", text: "Placeholder: what the two mean together." },
-    ],
-  },
-  artist: {
-    title: ["One artist.", "One client at a time."],
-    paragraphs: [
-      "Placeholder: who does the work and why there is no second chair.",
-      "Placeholder: the deliberate choice behind keeping it this way.",
-    ],
-    caption: ["Artist name", "Founder & artist"],
-  },
-};
-
-/* Placeholder-aware image: pass `src` when you have a real photo */
-function Img({ src, alt, label, className = "" }) {
-  return src ? (
-    <img className={`ab-img ${className}`} src={src} alt={alt} />
-  ) : (
-    <div className={`ab-img ab-ph ${className}`} role="img" aria-label={alt}>
-      <span>{label}</span>
-    </div>
-  );
-}
-
-const Eyebrow = ({ children }) => (
-  <p className="ab-eyebrow"><i className="ab-dash" />{children}</p>
-);
-
-export default function About() {
-  const { origin, philosophy, quote, name, artist } = STUDIO;
-
-  return (
-    <main className="ab">
-      {/* 1. Hero */}
-      <section className="ab-hero ab-wrap">
-        <Eyebrow>About the studio</Eyebrow>
+tion className="ab-hero ab-wrap">
+        <Eyebrow>{labels.hero}</Eyebrow>
         <h1 className="ab-h1">
-          A studio born<br /><em>of stillness.</em>
+          {hero.title[0]}<br /><em>{hero.title[1]}</em>
         </h1>
-        <p className="ab-eyebrow ab-hero-meta"><i className="ab-dash" />{STUDIO.est}</p>
+        <p className="ab-eyebrow ab-hero-meta"><i className="ab-dash" />{hero.meta}</p>
       </section>
 
       {/* 2. Origin + timeline */}
@@ -83,7 +123,7 @@ export default function About() {
             <div className="ab-origin-year">
               <span className="ab-year">{origin.year}</span>
               <ul className="ab-meta">
-                {origin.meta.map((m) => <li key={m}>{m}</li>)}
+                {origin.meta.map((m, i) => <li key={i}>{m}</li>)}
               </ul>
             </div>
             <div className="ab-origin-copy">
@@ -93,7 +133,7 @@ export default function About() {
           </div>
           <ol className="ab-timeline">
             {origin.timeline.map((t, i) => (
-              <li key={t.year} className={i === 0 ? "is-first" : ""}>
+              <li key={i} className={i === 0 ? "is-first" : ""}>
                 <strong>{t.year}</strong>
                 <span>{t.label}</span>
               </li>
@@ -106,14 +146,14 @@ export default function About() {
       <section className="ab-phil ab-wrap">
         <div className="ab-phil-head">
           <div>
-            <Eyebrow>The philosophy</Eyebrow>
+            <Eyebrow>{labels.philosophy}</Eyebrow>
             <h2 className="ab-h2">{philosophy.title[0]}<br /><em>{philosophy.title[1]}</em></h2>
           </div>
           <p className="ab-p ab-phil-intro">{philosophy.intro}</p>
         </div>
         <ul className="ab-rows">
           {philosophy.items.map((it, i) => (
-            <li key={it.word}>
+            <li key={i}>
               <span className="ab-num">{String(i + 1).padStart(2, "0")}</span>
               <h3 className="ab-word">{it.word}</h3>
               <p className="ab-p">{it.text}</p>
@@ -124,7 +164,7 @@ export default function About() {
 
       {/* 4. Full-bleed image band with quote */}
       <section className="ab-band">
-        <Img className="ab-band-img" alt="The studio space" label="Placeholder · studio interior (wide)" />
+        <Img className="ab-band-img" alt="Wide image" label="Placeholder · wide image" />
         <div className="ab-band-shade" />
         <figure className="ab-wrap ab-quote">
           <blockquote>{quote.text}</blockquote>
@@ -140,9 +180,9 @@ export default function About() {
             <p className="ab-bigword">{name.big[0]}<em>{name.big[1]}</em></p>
           </div>
           <div className="ab-defs">
-            <p className="ab-eyebrow"><i className="ab-dash" />The name</p>
-            {name.defs.map((d) => (
-              <dl key={d.term}>
+            <p className="ab-eyebrow"><i className="ab-dash" />{labels.name}</p>
+            {name.defs.map((d, i) => (
+              <dl key={i}>
                 <dt>{d.term}</dt>
                 <dd>{d.text}</dd>
               </dl>
@@ -154,7 +194,7 @@ export default function About() {
       {/* 6. The artist */}
       <section className="ab-artist ab-wrap">
         <figure className="ab-portrait">
-          <Img alt="The artist at work" label="Placeholder · artist portrait" />
+          <Img alt="Portrait" label="Placeholder · portrait image" />
           <figcaption>
             <i className="ab-dash" />
             <span>{artist.caption[0]}</span>
@@ -162,12 +202,12 @@ export default function About() {
           </figcaption>
         </figure>
         <div className="ab-artist-copy">
-          <Eyebrow>The artist</Eyebrow>
+          <Eyebrow>{labels.artist}</Eyebrow>
           <h2 className="ab-h2">{artist.title[0]}<br /><em>{artist.title[1]}</em></h2>
           {artist.paragraphs.map((p, i) => <p className="ab-p" key={i}>{p}</p>)}
           <div className="ab-actions">
-            <a className="ab-btn" href="/book">Book with us</a>
-            <a className="ab-link" href="/work">See the work</a>
+            <a className="ab-btn" href={artist.primary.href}>{artist.primary.label}</a>
+            <a className="ab-link" href={artist.secondary.href}>{artist.secondary.label}</a>
           </div>
         </div>
       </section>
