@@ -56,7 +56,7 @@
 .pz-tag { color: var(--pz-gold-deep); }
 .pz-green .pz-tag, .pz-dark-photo .pz-tag { color: var(--pz-gold); }
 .pz-body { font-size: 14px; line-height: 1.85; color: var(--pz-muted); font-weight: 400; max-width: 46ch; }
-.pz-lead { font-size: 15px; line-height: 1.8; max-width: 46ch; margin: 20px auto 0; color: #e8e3d8; }
+.pz .pz-lead { font-size: 15px; line-height: 1.8; max-width: 46ch; margin: 20px auto 0; text-align: center; color: #e8e3d8; }
 .pz-narrow { margin-top: 18px; }
 
 /* ============ Shared layout ============ */
