@@ -12,7 +12,6 @@ export default function Header() {
   return (
     <header className="header">
       <Link to="/" className="logo">Nyobiese <i>Studios</i></Link>
-      <button className="burger" onClick={() => setOpen(!open)} aria-label="Menu">☰</button>
       <nav className={`nav ${open ? 'open' : ''}`}>
         <NavLink to="/" end>home</NavLink>
         <div className={`dropdown ${drop ? 'open' : ''}`}>
@@ -27,8 +26,9 @@ export default function Header() {
         <NavLink to="/piercing">piercing</NavLink>
         <NavLink to="/about">about</NavLink>
         <NavLink to="/faq">faq</NavLink>
-        <Link to="/book" className="btn solid">book now</Link>
       </nav>
+      <Link to="/book" className="btn book-btn">book now</Link>
+      <button className="burger" onClick={() => setOpen(!open)} aria-label="Menu">☰</button>
     </header>
   )
 }
