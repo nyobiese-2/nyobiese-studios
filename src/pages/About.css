@@ -1,4 +1,3 @@
-
 /* ============ Tokens: override these with your site's own ============ */
 .ab {
   --ab-bg: transparent;          /* hero + philosophy + artist background */
@@ -11,7 +10,7 @@
   --ab-line: rgba(0,0,0,.12);
   --ab-font-display: inherit;    /* headings, big words */
   --ab-font-body: inherit;       /* paragraphs, labels */
- 
+
   background: var(--ab-bg);
   color: var(--ab-ink);
   font-family: var(--ab-font-body);
@@ -19,7 +18,7 @@
 .ab *, .ab *::before, .ab *::after { box-sizing: border-box; }
 .ab h1, .ab h2, .ab h3, .ab p, .ab ul, .ab ol, .ab dl, .ab dd, .ab figure, .ab blockquote { margin: 0; padding: 0; }
 .ab ul, .ab ol { list-style: none; }
- 
+
 /* ============ Shared ============ */
 .ab-wrap { width: 100%; padding-inline: clamp(20px, 2.7vw, 36px); }
 .ab-dash { display: inline-block; width: 14px; height: 1px; background: var(--ab-accent); vertical-align: middle; margin-right: 10px; }
@@ -30,10 +29,10 @@
 .ab em { font-style: italic; color: var(--ab-muted); }
 .ab-p { font-size: 11px; line-height: 1.8; color: var(--ab-muted); max-width: 44ch; }
 .ab-p + .ab-p { margin-top: 14px; }
- 
+
 /* ============ 1. Hero ============ */
 .ab-hero { padding-top: clamp(48px, 7vw, 90px); padding-bottom: clamp(48px, 7vw, 90px); }
- 
+
 /* ============ 2. Origin ============ */
 .ab-origin { background: var(--ab-bg-alt); padding-top: clamp(40px, 5vw, 64px); }
 .ab-origin-grid { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding-bottom: 24px; }
@@ -46,7 +45,7 @@
 .ab-timeline li.is-first { border-left-color: var(--ab-accent); }
 .ab-timeline strong { display: block; font: 300 13px var(--ab-font-display); color: var(--ab-ink); }
 .ab-timeline span { font-size: 7px; letter-spacing: .14em; text-transform: uppercase; color: var(--ab-muted); }
- 
+
 /* ============ 3. Philosophy ============ */
 .ab-phil { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(40px, 5vw, 64px); }
 .ab-phil-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; margin-bottom: 36px; }
@@ -58,7 +57,7 @@
 .ab-word { font-size: 22px; }
 .ab-rows .ab-p { max-width: 62ch; font-size: 8.5px; justify-self: start; }
 .ab-rows li > .ab-p { grid-column: 3; }
- 
+
 /* ============ 4. Image band + quote ============ */
 .ab-band { position: relative; min-height: 360px; display: flex; align-items: flex-end; overflow: hidden; background: #1a1714; color: #f4f1ea; }
 .ab-band-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -66,7 +65,7 @@
 .ab-quote { position: relative; padding-block: 48px; }
 .ab-quote blockquote { max-width: 18ch; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.3; font-style: italic; }
 .ab-quote figcaption { margin-top: 16px; font-size: 7px; letter-spacing: .14em; text-transform: uppercase; opacity: .6; }
- 
+
 /* ============ 5. The name ============ */
 .ab-name { background: var(--ab-dark); color: var(--ab-on-dark); padding-block: clamp(40px, 5vw, 64px); }
 .ab-name .ab-eyebrow { color: color-mix(in srgb, var(--ab-on-dark) 40%, transparent); }
@@ -77,7 +76,7 @@
 .ab-defs dl { margin-top: 14px; padding-left: 10px; border-left: 1px solid color-mix(in srgb, var(--ab-on-dark) 18%, transparent); }
 .ab-defs dt { font-size: 7px; letter-spacing: .14em; text-transform: uppercase; color: var(--ab-accent); margin-bottom: 4px; }
 .ab-defs dd { font-size: 8.5px; line-height: 1.7; color: color-mix(in srgb, var(--ab-on-dark) 55%, transparent); }
- 
+
 /* ============ 6. The artist ============ */
 .ab-artist { display: grid; grid-template-columns: minmax(0, 618px) 1fr; gap: 40px; align-items: start; padding-block: 48px 56px; }
 .ab-portrait { position: relative; border: 1px solid var(--ab-line); aspect-ratio: 4 / 5; max-height: 700px; overflow: hidden; background: #1a1714; }
@@ -90,10 +89,10 @@
 .ab-btn { background: var(--ab-accent); color: #fff; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; padding: 10px 14px; text-decoration: none; }
 .ab-link { font-size: 8px; letter-spacing: .12em; text-transform: uppercase; color: var(--ab-muted); text-decoration: none; }
 .ab-btn:focus-visible, .ab-link:focus-visible { outline: 2px solid var(--ab-ink); outline-offset: 3px; }
- 
+
 /* ============ Placeholder image ============ */
 .ab-ph { display: grid; place-items: center; background: linear-gradient(135deg, #2b2824, #4a443d); color: rgba(255,255,255,.55); font-size: 9px; letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 16px; }
- 
+
 /* ============ Responsive ============ */
 @media (max-width: 900px) {
   .ab-origin-grid, .ab-phil-head, .ab-name-grid, .ab-artist { grid-template-columns: 1fr; }
@@ -104,4 +103,3 @@
   .ab-p, .ab-rows .ab-p, .ab-defs dd { font-size: 12px; }
   .ab-portrait { aspect-ratio: 4 / 5; }
 }
- 
