@@ -1,0 +1,20 @@
+:root {
+  --bg: #0a0a0a; --panel: #111; --line: #262626;
+  --gold: #c9a96e; --cream: #e8dcc0; --text: #e6e1d6; --muted: #9a958a;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Montserrat', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.9; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 300; line-height: 1.1; color: #fff; }
+h1 { font-size: clamp(3rem, 8vw, 6rem); }
+h2 { font-size: clamp(2rem, 4vw, 3rem); }
+em { font-style: italic; color: var(--cream); }
+.eyebrow { font-size: .72rem; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.rule { width: 90px; height: 1px; background: var(--gold); margin: 1.8rem 0; }
+.section { padding: 5rem 4vw; max-width: 1200px; margin: 0 auto; }
+.btn { display: inline-block; padding: .9rem 2rem; font: 500 .75rem var(--sans); letter-spacing: .25em; text-transform: uppercase; border: 1px solid var(--gold); color: var(--gold); background: transparent; cursor: pointer; transition: .25s; }
+.btn:hover, .btn.solid { background: var(--gold); color: var(--bg); }
+.btn.solid:hover { background: var(--cream); }
+.tag { border: 1px solid var(--line); padding: .35rem 1.2rem; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }

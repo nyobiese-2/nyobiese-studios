@@ -1,0 +1,5 @@
+.faq details { border-bottom: 1px solid var(--line); padding: 1.4rem 0; }
+.faq summary { cursor: pointer; font: 300 1.5rem var(--serif); color: #fff; list-style: none; }
+.faq summary::after { content: '+'; float: right; color: var(--gold); }
+.faq details[open] summary::after { content: '–'; }
+.faq details p { margin-top: .8rem; color: var(--muted); }

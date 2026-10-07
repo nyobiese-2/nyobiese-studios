@@ -1,0 +1,4 @@
+.book .book-form { display: grid; gap: 1.2rem; max-width: 640px; margin-top: 2.5rem; }
+.book .book-form input, .book .book-form select, .book .book-form textarea { width: 100%; padding: .9rem 1rem; background: var(--panel); border: 1px solid var(--line); color: var(--text); font: 300 .9rem var(--sans); }
+.book .book-form input:focus, .book .book-form select:focus, .book .book-form textarea:focus { outline: none; border-color: var(--gold); }
+.book .book-notice { margin-top: 1.5rem; color: var(--gold); }

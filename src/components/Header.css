@@ -1,0 +1,22 @@
+.header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 0 4vw; height: 84px; background: rgba(10,10,10,.95); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+.logo { font-family: var(--serif); font-size: 1.9rem; letter-spacing: .08em; color: #fff; }
+.logo i { color: var(--gold); }
+.nav { display: flex; align-items: center; gap: 2.2rem; }
+.nav a, .nav .drop-btn { font: 400 .8rem var(--sans); letter-spacing: .22em; text-transform: lowercase; color: var(--text); background: none; border: 0; cursor: pointer; padding: .4rem 0; border-bottom: 1px solid transparent; }
+.nav a:hover, .nav a.active, .nav .drop-btn:hover { color: var(--gold); border-color: var(--gold); }
+.nav a.btn { padding: .9rem 2rem; border: 1px solid var(--gold); color: var(--bg); }
+.dropdown { position: relative; }
+.drop-btn svg { margin-left: .4rem; width: 10px; transition: .2s; }
+.dropdown:hover svg, .dropdown.open svg { transform: rotate(180deg); }
+.menu { position: absolute; top: 100%; left: -1rem; min-width: 250px; background: var(--panel); border: 1px solid var(--line); padding: .75rem 0; opacity: 0; visibility: hidden; transform: translateY(8px); transition: .2s; }
+.dropdown:hover .menu, .dropdown.open .menu { opacity: 1; visibility: visible; transform: none; }
+.menu a { display: block; padding: .6rem 1.5rem; border: 0 !important; }
+.menu a:hover { background: #181818; }
+.burger { display: none; background: none; border: 0; color: var(--gold); font-size: 1.6rem; cursor: pointer; }
+@media (max-width: 900px) {
+  .burger { display: block; }
+  .nav { position: absolute; top: 84px; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.2rem; padding: 1.5rem 4vw; background: var(--bg); border-bottom: 1px solid var(--line); display: none; }
+  .nav.open { display: flex; }
+  .menu { position: static; opacity: 1; visibility: visible; transform: none; display: none; border: 0; padding-left: 1rem; }
+  .dropdown.open .menu { display: block; }
+}
