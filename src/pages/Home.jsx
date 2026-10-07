@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import './Home.css'
 
-/* ===== The work: put image paths in `src` (e.g. '/work/lion.jpg').
-   Leave it as '' to show the placeholder. ===== */
+/* Put your image paths in `src` (e.g. '/work/lion.jpg').
+   Leave it as '' to show the placeholder. */
 const WORK = [
   { label: 'Black & Grey', src: '', className: 'tile-large' },
   { label: 'Fine Line',    src: '' },
@@ -11,21 +11,10 @@ const WORK = [
   { label: 'Detail',       src: '' },
 ]
 
-/* ===== Services: set `src` on the image card (e.g. '/services/piercing.jpg').
-   Leave it as '' to show the placeholder. ===== */
-const SERVICES = [
-  { n: '01', title: 'Fine Line & Lettering', desc: 'Delicate linework, botanical detail and hand-drawn lettering', meta: 'From 2 hrs', to: '/tattoos/fine-line' },
-  { n: '02', title: 'Portrait Realism', desc: 'Lifelike depth and soft shading, built up layer by layer', meta: 'Half-day sessions', to: '/tattoos/realism' },
-  { n: '03', title: 'Blackwork & Geometric', desc: 'Solid black, sharp patterns and an unmistakable presence', meta: 'Custom scale', to: '/tattoos/blackwork' },
-  { n: '04', title: 'Colour Tattoos', desc: 'Rich, long-lasting colour applied with patience and care', meta: 'Multi-session', to: '/tattoos/colour', wide: true },
-  { n: '05', title: 'Piercings', image: true, src: '', to: '/piercing' },
-  { n: '06', title: 'Cover-Ups & Reworks', desc: 'Old ink given a second life, redesigned around what you already have', meta: 'Consultation first', to: '/tattoos/cover-ups', full: true },
-]
-
 export default function Home() {
   return (
     <>
-      {/* ===== Hero ===== */}
+      {/* ===== Page 1: Hero ===== */}
       <section className="home">
         <div className="home-bg" aria-hidden="true" />
 
@@ -65,7 +54,7 @@ export default function Home() {
         </a>
       </section>
 
-      {/* ===== The work ===== */}
+      {/* ===== Page 2: The work (image placeholders) ===== */}
       <section className="work">
         <div className="work-head">
           <h2>The work.</h2>
@@ -82,46 +71,6 @@ export default function Home() {
               )}
               <figcaption>{w.label}</figcaption>
             </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* ===== Services ===== */}
-      <section className="services">
-        <div className="services-head">
-          <div>
-            <p className="services-eyebrow"><span /> Our craft</p>
-            <h2>Services.</h2>
-          </div>
-          <p className="services-intro">
-            Six disciplines, one steady hand. Every design is drawn from scratch,
-            talked through with you, and finished only when it feels right.
-          </p>
-        </div>
-
-        <div className="services-grid">
-          {SERVICES.map(s => (
-            <Link
-              key={s.n}
-              to={s.to}
-              className={`svc ${s.wide ? 'svc-wide' : ''} ${s.full ? 'svc-full' : ''} ${s.image ? 'svc-image' : ''}`}
-            >
-              {s.image && (
-                s.src
-                  ? <img className="svc-img" src={s.src} alt={s.title} />
-                  : <div className="svc-img svc-placeholder">Image placeholder</div>
-              )}
-              <span className="svc-num">{s.n}</span>
-              <h3>{s.title}</h3>
-              {!s.image && <p className="svc-desc">{s.desc}</p>}
-              {!s.image && (
-                <div className="svc-foot">
-                  <span>{s.meta}</span>
-                  <span aria-hidden="true">↗</span>
-                </div>
-              )}
-              {s.image && <span className="svc-arrow" aria-hidden="true">↗</span>}
-            </Link>
           ))}
         </div>
       </section>
