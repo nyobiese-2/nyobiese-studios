@@ -143,8 +143,8 @@ export default function Home() {
           <p className="artist-eyebrow"><span /> Meet the artist</p>
 
           <h2>
-            Shawn Kay
-            <em>Davies</em>
+            Perez Kay
+            <em>Jordan</em>
           </h2>
 
           <p className="artist-role">Founder · Tattoo artist · Nyobiese Studios</p>
@@ -160,7 +160,7 @@ export default function Home() {
           </p>
 
           <div className="artist-cta">
-            <Link to="/book" className="artist-btn">Book with Shawn →</Link>
+            <Link to="/book" className="artist-btn">Book with perez→</Link>
             <Link to="/gallery" className="artist-link">View portfolio</Link>
           </div>
         </div>
