@@ -57,7 +57,7 @@ const PAGE = {
 };
 
 /* Placeholder-aware image: pass `src` for a real photo */
-function Img({ src, alt, label, className = "16747829862350187.jpeg" }) {
+function Img({ src, alt, label, className = "" }) {
   return src ? (
     <img className={`pz-img ${className}`} src={src} alt={alt} />
   ) : (
