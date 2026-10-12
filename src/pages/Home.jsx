@@ -25,6 +25,13 @@ const SERVICES = [
    Leave it as '' to show the placeholder. */
 const ARTIST = { src: '' }
 
+/* Edit the reviews here. */
+const REVIEWS = [
+  { text: 'My first ever tattoo was done here and I loved every minute. Perez was calm and professional throughout, and the studio is spotless, which gave me real confidence as a first-timer.' },
+  { text: 'The atmosphere is peaceful and focused. It feels less like a tattoo shop and more like a private studio. The fine line work is outstanding, and every detail was placed with care.', offset: true },
+  { text: 'I booked a piercing and the whole visit was flawless. The jewellery is truly premium, the placement is spot on, and the aftercare advice made healing effortless.' },
+]
+
 export default function Home() {
   return (
     <>
@@ -163,6 +170,44 @@ export default function Home() {
             <Link to="/book" className="artist-btn">Book with perez→</Link>
             <Link to="/gallery" className="artist-link">View portfolio</Link>
           </div>
+        </div>
+      </section>
+
+      {/* ===== Page 5: Reviews ===== */}
+      <section className="voices">
+        <p className="voices-eyebrow">— Words from our guests —</p>
+
+        <div className="voices-head">
+          <h2>
+            Stories, shared <em>in their own words.</em>
+          </h2>
+
+          <div className="voices-badge">
+            <span className="voices-stars" aria-hidden="true">★★★★★</span>
+            <span>5.0 Perfect score · Google reviews</span>
+          </div>
+        </div>
+
+        <div className="voices-grid">
+          {REVIEWS.map((r, i) => (
+            <article key={i} className={`voice ${r.offset ? 'voice-offset' : ''}`}>
+              <div className="voice-top">
+                <span className="voices-stars" aria-label="5 out of 5 stars">★★★★★</span>
+                <span className="voice-arrow" aria-hidden="true">↗</span>
+              </div>
+
+              <blockquote>“{r.text}”</blockquote>
+
+              <span className="voice-tag">
+                <i aria-hidden="true">✓</i> Verified client
+              </span>
+
+              <div className="voice-foot">
+                <span>Google review</span>
+                <span>Read on</span>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </>
