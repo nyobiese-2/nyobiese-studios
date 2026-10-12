@@ -56,7 +56,7 @@ const PAGE = {
   cta: { title: ["Ready when you are.", "Book your session."], note: "By appointment only. Send us a message to find a time that suits you.", button: { label: "Book a session", href: "#" } },
 };
 
-/* Placeholder-aware image: pass `src` for a real photo */
+https://github.com/nyobiese-2/nyobiese-studios/blob/main/src/16747829862350187.jpeg /* Placeholder-aware image: pass `src` for a real photo */
 function Img({ src, alt, label, className = "" }) {
   return src ? (
     <img className={`pz-img ${className}`} src={src} alt={alt} />
