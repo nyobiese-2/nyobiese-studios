@@ -116,7 +116,7 @@
 
 /* ===== Page 2: The work ===== */
 .work {
-  background: #f1ebe3;
+  background: var(--bg); /* was cream; now matches the hero's dark fade */
 }
 
 .work-head {
@@ -132,16 +132,17 @@
   font-weight: 400;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
-  color: #1f241f;
+  color: #f5f1e8; /* was dark; now light so it reads on black */
   margin: 0;
 }
 .work-link {
   font-size: .65rem;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: #4a4a44;
+  color: rgba(245,241,232,.7); /* was dark grey; now light */
   text-decoration: none;
 }
+.work-link:hover { color: #f5f1e8; }
 
 .work-grid {
   display: grid;
