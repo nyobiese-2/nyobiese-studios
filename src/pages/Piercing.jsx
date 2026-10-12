@@ -38,7 +38,7 @@ const PAGE = {
   },
   person: {
     label: "Your piercer",
-    name: "Piercer name",
+    name: "Piercer name",https://github.com/nyobiese-2/nyobiese-studios/blob/main/src/16747829862350187.jpeg
     role: "Resident body piercer",
     quote: "Choosing jewellery is a small ritual of looking after yourself.",
     primary: { label: "Book an appointment", href: "#" },
@@ -56,8 +56,8 @@ const PAGE = {
   cta: { title: ["Ready when you are.", "Book your session."], note: "By appointment only. Send us a message to find a time that suits you.", button: { label: "Book a session", href: "#" } },
 };
 
-https://github.com/nyobiese-2/nyobiese-studios/blob/main/src/16747829862350187.jpeg /* Placeholder-aware image: pass `src` for a real photo */
-function Img({ src, alt, label, className = "" }) {
+/* Placeholder-aware image: pass `src` for a real photo */
+function Img({ src, alt, label, className = "16747829862350187.jpeg" }) {
   return src ? (
     <img className={`pz-img ${className}`} src={src} alt={alt} />
   ) : (
