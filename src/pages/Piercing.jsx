@@ -38,7 +38,7 @@ const PAGE = {
   },
   person: {
     label: "Your piercer",
-    name: "Piercer name",https://github.com/nyobiese-2/nyobiese-studios/blob/main/src/16747829862350187.jpeg
+    name: "Piercer name",
     role: "Resident body piercer",
     quote: "Choosing jewellery is a small ritual of looking after yourself.",
     primary: { label: "Book an appointment", href: "#" },
