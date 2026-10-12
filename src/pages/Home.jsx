@@ -32,6 +32,19 @@ const REVIEWS = [
   { text: 'I booked a piercing and the whole visit was flawless. The jewellery is truly premium, the placement is spot on, and the aftercare advice made healing effortless.' },
 ]
 
+/* Gallery: set `src` to an image path (e.g. '/gallery/lion.jpg').
+   Leave it as '' to show the placeholder.
+   `href` is optional (e.g. an Instagram post link).
+   `multi: true` shows the small "multiple photos" icon. */
+const GALLERY = [
+  { src: '', alt: 'Tattoo 1', href: '', multi: true },
+  { src: '', alt: 'Tattoo 2', href: '' },
+  { src: '', alt: 'Tattoo 3', href: '' },
+  { src: '', alt: 'Tattoo 4', href: '' },
+  { src: '', alt: 'Tattoo 5', href: '' },
+  { src: '', alt: 'Tattoo 6', href: '' },
+]
+
 export default function Home() {
   return (
     <>
@@ -207,6 +220,29 @@ export default function Home() {
                 <span>Read on</span>
               </div>
             </article>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== Page 6: Gallery (image placeholders) ===== */}
+      <section className="gallery">
+        <div className="gallery-grid">
+          {GALLERY.map((g, i) => (
+            <a
+              key={i}
+              href={g.href || undefined}
+              target="_blank"
+              rel="noreferrer"
+              className="gallery-tile"
+              aria-label={g.alt}
+            >
+              {g.src ? (
+                <img src={g.src} alt={g.alt} />
+              ) : (
+                <div className="gallery-placeholder">Image placeholder</div>
+              )}
+              {g.multi && <span className="gallery-multi" aria-hidden="true" />}
+            </a>
           ))}
         </div>
       </section>
