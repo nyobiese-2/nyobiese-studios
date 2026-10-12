@@ -45,6 +45,14 @@ const GALLERY = [
   { src: '', alt: 'Tattoo 6', href: '' },
 ]
 
+/* Page 7: the four steps in the "How it works" panel. */
+const STEPS = [
+  { n: '01', title: 'Share your idea', text: 'Send reference images, placement and size through the booking form or WhatsApp' },
+  { n: '02', title: 'Design chat', text: 'Perez sketches a custom design and refines it with you before any ink is used' },
+  { n: '03', title: 'Your session', text: 'Arrive at the studio, settle in, and the piece comes to life' },
+  { n: '04', title: 'Yours to keep', text: 'Full aftercare guidance, with touch-ups available whenever you need them' },
+]
+
 export default function Home() {
   return (
     <>
@@ -244,6 +252,70 @@ export default function Home() {
               {g.multi && <span className="gallery-multi" aria-hidden="true" />}
             </a>
           ))}
+        </div>
+      </section>
+
+      {/* ===== Page 7: Ready when you are ===== */}
+      <section className="ready">
+        <div className="ready-inner">
+          <div className="ready-left">
+            <p className="ready-eyebrow"><span /> Whenever you're ready</p>
+
+            <h2>
+              13 years.<br />
+              One hand.<br />
+              <em>Your story.</em>
+            </h2>
+
+            <p className="ready-text">
+              Fine line, botanical lettering, quiet symbolism. Every piece is
+              drawn by hand and shaped in conversation, long before the
+              machine starts.
+            </p>
+
+            <div className="ready-cta">
+              <Link to="/book" className="ready-btn">Book your session →</Link>
+              <a
+                href="https://wa.me/254700000000"
+                target="_blank"
+                rel="noreferrer"
+                className="ready-link"
+              >
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div className="ready-right">
+            <div className="ready-steps">
+              <p className="ready-steps-title">The process</p>
+
+              <ol>
+                {STEPS.map(s => (
+                  <li key={s.n}>
+                    <span className="ready-step-num">{s.n}</span>
+                    <div>
+                      <h3>{s.title}</h3>
+                      <p>{s.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+
+            <figure className="ready-quote">
+              <span className="ready-quote-rule" aria-hidden="true" />
+              <blockquote>
+                “The most thoughtful tattoo experience I've ever had. Perez
+                understood exactly what I wanted from the first message.”
+              </blockquote>
+              <figcaption>
+                <span>Verified client · Nairobi</span>
+                <i aria-hidden="true" />
+                <b aria-label="5 out of 5 stars">★★★★★</b>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
     </>
