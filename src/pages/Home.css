@@ -981,10 +981,9 @@
 /* ===== Page 1: Hero, phone fit ===== */
 @media (max-width: 600px) {
   .home {
-    min-height: 100vh;
-    min-height: 100svh;          /* accounts for the phone's browser bars */
-    align-items: center;
-    padding: 6rem 6vw 5.5rem;    /* top space clears the header, bottom clears WhatsApp */
+    min-height: 0;               /* no forced full-screen height, so no empty bands */
+    align-items: flex-start;
+    padding: 2rem 6vw 2.2rem;    /* tight top and bottom space */
   }
 
   .home-bg {
@@ -1001,7 +1000,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: .52rem;
     letter-spacing: .1em;
     line-height: 1.5;
@@ -1025,8 +1024,8 @@
   /* Buttons: full width, stacked */
   .home-cta {
     flex-direction: column;
-    gap: .75rem;
-    margin-top: 1.8rem;
+    gap: .7rem;
+    margin-top: 1.4rem;
   }
   .home-cta .btn {
     display: block;
@@ -1038,7 +1037,7 @@
   }
 
   .home-scroll {
-    margin-top: 1.6rem;
+    margin-top: 1.2rem;
     font-size: .55rem;
   }
 
@@ -1057,7 +1056,7 @@
 
 /* Very small phones */
 @media (max-width: 360px) {
-  .home { padding: 5.5rem 5vw 5rem; }
+  .home { padding: 1.6rem 5vw 1.8rem; }
   .home h1 { font-size: 2.4rem; }
   .home-stats { font-size: .48rem; }
   .home-stats b { font-size: 1rem; }
