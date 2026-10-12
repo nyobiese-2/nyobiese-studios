@@ -1,48 +1,60 @@
-.admin-login { max-width: 420px; }
+/* Containers */
+.section.admin {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+.section.admin-login {
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+}
+.admin h1, .admin-login h1 { font-size: 1.8rem; }
+
 .admin-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
-.admin-tabs, .admin-filters { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 2rem 0 1.5rem; }
+.admin-tabs, .admin-filters { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 1.5rem 0 1.2rem; }
 .admin-tabs button, .admin-filters button {
   background: transparent; color: var(--muted); border: 1px solid var(--line);
-  padding: .55rem 1.1rem; cursor: pointer; text-transform: capitalize; font: inherit;
+  padding: .45rem .9rem; cursor: pointer; text-transform: capitalize; font: inherit; font-size: .9rem;
 }
 .admin-tabs button.active, .admin-filters button.active { color: #fff; border-color: #fff; }
 .admin-muted { color: var(--muted); }
 .admin-error { color: #e86a6a; margin-top: 1rem; }
 
-.admin-form { display: flex; flex-direction: column; gap: .9rem; margin-top: 2rem; }
+.admin-form { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
 .admin-form input {
   background: var(--panel); border: 1px solid var(--line); color: inherit;
-  padding: .8rem 1rem; font: inherit;
+  padding: .7rem .9rem; font: inherit;
 }
-.upload-form { margin-top: 0; max-width: 520px; }
+.upload-form { margin-top: 0; max-width: 480px; }
 .admin-btn {
-  background: #fff; color: #000; border: 1px solid #fff; padding: .8rem 1.4rem;
-  cursor: pointer; font: inherit; text-transform: uppercase; letter-spacing: .08em;
+  background: #fff; color: #000; border: 1px solid #fff; padding: .7rem 1.2rem;
+  cursor: pointer; font: inherit; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em;
 }
 .admin-btn:disabled { opacity: .5; cursor: not-allowed; }
 .admin-btn.ghost { background: transparent; color: inherit; border-color: var(--line); }
 
-.booking-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.2rem; }
-.booking-card { border: 1px solid var(--line); background: var(--panel); padding: 1.3rem; display: flex; flex-direction: column; gap: 1rem; }
+.booking-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.booking-card { border: 1px solid var(--line); background: var(--panel); padding: 1.1rem; display: flex; flex-direction: column; gap: .9rem; font-size: .92rem; }
 .booking-card header { display: flex; justify-content: space-between; align-items: center; gap: .6rem; }
-.booking-card h3 { margin: 0; }
-.booking-card dl { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1rem; margin: 0; }
+.booking-card h3 { margin: 0; font-size: 1.05rem; }
+.booking-card dl { display: grid; grid-template-columns: auto 1fr; gap: .35rem .9rem; margin: 0; }
 .booking-card dt { color: var(--muted); }
 .booking-card dd { margin: 0; word-break: break-word; }
-.booking-card footer { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; }
+.booking-card footer { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
 .booking-card footer button, .admin-grid figure button {
   background: transparent; color: inherit; border: 1px solid var(--line);
-  padding: .4rem .8rem; cursor: pointer; font: inherit; font-size: .85rem;
+  padding: .35rem .7rem; cursor: pointer; font: inherit; font-size: .8rem;
 }
 .booking-card footer button:hover { border-color: #fff; }
 button.danger:hover { border-color: #e86a6a; color: #e86a6a; }
 
-.badge { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; padding: .2rem .6rem; border: 1px solid var(--line); }
+.badge { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; padding: .15rem .5rem; border: 1px solid var(--line); }
 .badge.new { color: #f0c36a; border-color: #f0c36a; }
 .badge.confirmed { color: #6ae88f; border-color: #6ae88f; }
 .badge.done { color: var(--muted); }
 
-.admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .8rem; margin-top: 1.5rem; }
 .admin-grid figure { margin: 0; border: 1px solid var(--line); background: var(--panel); }
 .admin-grid img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
 .admin-grid figure button { width: 100%; border: 0; border-top: 1px solid var(--line); }
