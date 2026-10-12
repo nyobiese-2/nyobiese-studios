@@ -7,6 +7,7 @@ import Piercing from './pages/Piercing'
 import About from './pages/About'
 import Faq from './pages/Faq'
 import Book from './pages/Book'
+import Admin from './pages/Admin'
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/book" element={<Book />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
