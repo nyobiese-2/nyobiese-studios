@@ -116,7 +116,22 @@
 
 /* ===== Page 2: The work ===== */
 .work {
-  background: #f1ebe3;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* same background treatment as the hero (page 1) */
+.work::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, var(--bg) 0%, rgba(10,8,5,.55) 25%, rgba(10,8,5,.6) 75%, var(--bg) 100%),
+    url('/studio.jpg') center / cover no-repeat;
+  filter: sepia(.35) brightness(.8);
+  z-index: -1;
 }
 
 .work-head {
@@ -132,16 +147,17 @@
   font-weight: 400;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1;
-  color: #1f241f;
+  color: #f5f1e8;
   margin: 0;
 }
 .work-link {
   font-size: .65rem;
   letter-spacing: .15em;
   text-transform: uppercase;
-  color: #4a4a44;
+  color: rgba(245,241,232,.7);
   text-decoration: none;
 }
+.work-link:hover { color: #f5f1e8; }
 
 .work-grid {
   display: grid;
