@@ -3,7 +3,7 @@ import "./About.css";
 import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Edit these first ---------- */
-const ARTIST = "Artist Name";          // founder / tattoo artist
+const ARTIST = "Perez Jay Perez";      // founder / tattoo artist
 const CITY = "Louisville";
 /* Fallbacks only: an image uploaded in the admin (Site images) takes priority */
 const STUDIO_IMG = "/studio.jpg";
@@ -61,7 +61,7 @@ const STUDIO = {
     by: `${ARTIST} · On shaping the space`,
   },
   name: {
-    big: ["Faded", "-Ink"],
+    big: ["FADED", "-Ink"],
     defs: [
       {
         term: "Ink",
