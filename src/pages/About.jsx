@@ -4,7 +4,7 @@ import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Edit these first ---------- */
 const ARTIST = "Artist Name";          // founder / tattoo artist
-const CITY = "Newyork";
+const CITY = "Louisville";
 /* Fallbacks only: an image uploaded in the admin (Site images) takes priority */
 const STUDIO_IMG = "/studio.jpg";
 const ARTIST_IMG = "";
@@ -19,11 +19,11 @@ const STUDIO = {
   },
   hero: {
     title: ["A studio shaped", "by stillness."],
-    meta: `Est. 2015 · ${CITY} · Kenya`,
+    meta: `Est. 2015 · ${CITY} · Kentucky`,
   },
   origin: {
     year: "2015",
-    meta: ["Founded", CITY, "Kenya"],
+    meta: ["Founded", CITY, "Kentucky"],
     title: ["It began in a borrowed room", "with a single machine."],
     paragraphs: [
       `${ARTIST} started tattooing in ${CITY} in 2015, working from a tiny borrowed room with one coil machine and a sketchbook crowded with botanical drawings. There was no logo, no website and no social media, only recommendations passed between friends and a name for being patient to a fault.`,
@@ -61,7 +61,7 @@ const STUDIO = {
     by: `${ARTIST} · On shaping the space`,
   },
   name: {
-    big: ["NYO", "biese"],
+    big: ["FAD", "ed-ink"],
     defs: [
       {
         term: "Ink",
