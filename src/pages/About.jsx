@@ -4,7 +4,7 @@ import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Edit these first ---------- */
 const ARTIST = "Artist Name";          // founder / tattoo artist
-const CITY = "Nairobi";
+const CITY = "Newyork";
 /* Fallbacks only: an image uploaded in the admin (Site images) takes priority */
 const STUDIO_IMG = "/studio.jpg";
 const ARTIST_IMG = "";
@@ -27,7 +27,7 @@ const STUDIO = {
     title: ["It began in a borrowed room", "with a single machine."],
     paragraphs: [
       `${ARTIST} started tattooing in ${CITY} in 2015, working from a tiny borrowed room with one coil machine and a sketchbook crowded with botanical drawings. There was no logo, no website and no social media, only recommendations passed between friends and a name for being patient to a fault.`,
-      "A waiting list formed by 2018, and a small studio of our own followed in 2021. In 2024 Nyobiese Studios settled into its permanent home, a space built to feel more like a quiet reading room than a clinic.",
+      "A waiting list formed by 2018, and a small studio of our own followed in 2021. In 2024 Faded-Ink Studios settled into its permanent home, a space built to feel more like a quiet reading room than a clinic.",
       "From the very first day we have booked one client at a time, and that rule still stands.",
     ],
     timeline: [
@@ -68,7 +68,7 @@ const STUDIO = {
         text: "The medium itself: pigment held in liquid and placed beneath the skin through thousands of tiny punctures every minute. Permanent by nature.",
       },
       {
-        term: "Nyobiese",
+        term: "Faded-Ink",
         text: "Placeholder: what the name means, where it comes from, and why it was chosen for the studio.",
       },
       {
@@ -80,7 +80,7 @@ const STUDIO = {
   artist: {
     title: ["One artist,", "one client at a time."],
     paragraphs: [
-      "Nyobiese has never run guest residencies, added a second chair or hired junior tattooists. Every piece that leaves the studio was made by the same pair of hands.",
+      "Faded-Ink has never run guest residencies, added a second chair or hired junior tattooists. Every piece that leaves the studio was made by the same pair of hands.",
       `It is a limit ${ARTIST} chose on purpose, and has protected each time growth was on the table.`,
     ],
     caption: [ARTIST, "Founder & artist"],
