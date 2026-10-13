@@ -80,7 +80,7 @@ export default function Home() {
           <div className="home-scroll"><span /> Scroll</div>
         </div>
 
-        <div className="home-side">Faded-Ink Studios Studios · Sanctuary 01 · Nairobi</div>
+        <div className="home-side">Faded-Ink   · Sanctuary 01 · Nairobi</div>
 
         <a
           className="home-whatsapp"
@@ -174,7 +174,7 @@ export default function Home() {
             <em>Jordan</em>
           </h2>
 
-          <p className="artist-role">Founder · Tattoo artist · Faded-Ink Studios</p>
+          <p className="artist-role">Founder · Tattoo artist · Faded-Ink </p>
           <span className="artist-rule" aria-hidden="true" />
 
           <blockquote className="artist-quote">
