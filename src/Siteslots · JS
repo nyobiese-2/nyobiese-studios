@@ -1,0 +1,42 @@
+/* Every image spot on the public pages.
+   `slot` is the key stored in the site_images table.
+   Add a new entry here and it appears in the admin automatically. */
+export const SITE_SLOTS = [
+  {
+    group: 'Home · The work',
+    slots: [
+      { slot: 'home-work-1', label: 'Black & Grey (large tile)' },
+      { slot: 'home-work-2', label: 'Fine Line' },
+      { slot: 'home-work-3', label: 'Black Work' },
+      { slot: 'home-work-4', label: 'Sleeve' },
+      { slot: 'home-work-5', label: 'Detail' },
+    ],
+  },
+  {
+    group: 'Home · Services',
+    slots: [{ slot: 'home-service-piercing', label: 'Piercings card' }],
+  },
+  {
+    group: 'Home · Artist',
+    slots: [{ slot: 'home-artist', label: 'Artist photo' }],
+  },
+  {
+    group: 'Home · Gallery strip',
+    slots: [1, 2, 3, 4, 5, 6].map(n => ({ slot: `home-gallery-${n}`, label: `Gallery tile ${n}` })),
+  },
+  {
+    group: 'Piercing page',
+    slots: [
+      { slot: 'piercing-hero', label: 'Hero photo' },
+      ...[1, 2, 3, 4, 5].map(n => ({ slot: `piercing-gallery-${n}`, label: `Mosaic image ${n}` })),
+      { slot: 'piercing-person', label: 'Piercer photo' },
+    ],
+  },
+  {
+    group: 'About page',
+    slots: [
+      { slot: 'about-studio', label: 'Studio interior (wide band)' },
+      { slot: 'about-artist', label: 'Artist portrait' },
+    ],
+  },
+]
