@@ -80,7 +80,7 @@ export default function Home() {
           <div className="home-scroll"><span /> Scroll</div>
         </div>
 
-        <div className="home-side">Nyobiese Studios · Sanctuary 01 · Nairobi</div>
+        <div className="home-side">Faded-Ink Studios Studios · Sanctuary 01 · Nairobi</div>
 
         <a
           className="home-whatsapp"
