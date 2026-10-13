@@ -4,7 +4,7 @@ import { STYLES } from '../styles'
 import './Header.css'
 
 const clockFmt = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Africa/Nairobi',
+  timeZone: 'Louisville,Kentucky',
   hour: '2-digit',
   minute: '2-digit',
   hour12: true,
