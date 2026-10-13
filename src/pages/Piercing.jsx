@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./Piercing.css";
+import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Content (edit freely) ---------- */
 const PAGE = {
   hero: {
-    image: "", // e.g. "/images/hero.jpg"
     label: "The piercing suite",
     title: ["Calm hands.", "Careful work.", "Lasting adornment."],
     sub: "A quiet, sterile room and an unhurried approach to every single piercing.",
@@ -26,11 +26,7 @@ const PAGE = {
       { tag: "Step four", head: "The healing", text: "You leave with written aftercare, can message us while you heal, and get follow-up checks at no extra charge." },
     ],
   },
-  gallery: {
-    label: "Recent pieces", title: "Our latest work.", link: { label: "See the full gallery", href: "#" }, count: 5,
-    // one path per tile, e.g. "/images/gallery-1.jpg"
-    images: ["", "", "", "", ""],
-  },
+  gallery: { label: "Recent pieces", title: "Our latest work.", link: { label: "See the full gallery", href: "#" }, count: 5 },
   materials: {
     label: "Jewellery",
     title: ["Only the safest", "metals touch your skin."],
@@ -42,7 +38,6 @@ const PAGE = {
     ],
   },
   person: {
-    image: "", // e.g. "/images/piercer.jpg"
     label: "Your piercer",
     name: "Piercer name",
     role: "Resident body piercer",
@@ -77,6 +72,7 @@ const Title = ({ lines, tag: T = "h2", className = "" }) => (
 
 export default function Piercings() {
   const [active, setActive] = useState(0);
+  const images = useSiteImages();
   const { hero, steps, gallery, materials, person, standards, cta } = PAGE;
   const m = materials.tabs[active];
 
@@ -84,7 +80,7 @@ export default function Piercings() {
     <main className="pz">
       {/* 1. Hero: centred, dark photo */}
       <section className="pz-hero pz-dark-photo">
-        <Img className="pz-fill" src={hero.image} alt="Studio suite" label="Placeholder · hero photo" />
+        <Img className="pz-fill" src={images["piercing-hero"]} alt="Studio suite" label="Placeholder · hero photo" />
         <div className="pz-shade" />
         <div className="pz-hero-body">
           <Label>{hero.label}</Label>
@@ -133,7 +129,13 @@ export default function Piercings() {
           </header>
           <div className="pz-mosaic">
             {Array.from({ length: gallery.count }).map((_, i) => (
-              <Img key={i} className={`pz-tile pz-tile-${i + 1}`} src={gallery.images[i]} alt={`Gallery image ${i + 1}`} label={`Placeholder · image ${i + 1}`} />
+              <Img
+                key={i}
+                className={`pz-tile pz-tile-${i + 1}`}
+                src={images[`piercing-gallery-${i + 1}`]}
+                alt={`Gallery image ${i + 1}`}
+                label={`Placeholder · image ${i + 1}`}
+              />
             ))}
           </div>
         </div>
@@ -164,7 +166,7 @@ export default function Piercings() {
 
       {/* 5. Practitioner: centred on dark green */}
       <section className="pz-green pz-section pz-person">
-        <Img className="pz-avatar" src={person.image} alt={person.name} label="Photo" />
+        <Img className="pz-avatar" src={images["piercing-person"]} alt={person.name} label="Photo" />
         <Label>{person.label}</Label>
         <h2 className="pz-title">{person.name}</h2>
         <p className="pz-tag">{person.role}</p>
