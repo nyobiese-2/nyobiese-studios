@@ -50,7 +50,7 @@ export default function Header() {
 
   return (
     <header className={`header ${open ? 'menu-open' : ''}`}>
-      <Link to="/" className="logo">Nyobiese <i>Studios</i></Link>
+      <Link to="/" className="logo">Faded-Ink <i>Studios</i></Link>
 
       <nav id="site-nav" className={`nav ${open ? 'open' : ''}`} aria-label="Main">
         <NavLink to="/" end>home</NavLink>
