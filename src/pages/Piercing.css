@@ -86,7 +86,7 @@
 }
 .pz-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pz-hero .pz-ph { background: transparent; color: transparent; } /* hide placeholder gradient */
-.pz-shade { position: absolute; inset: 0; background: none; } /* no tint, so the hero colour stays identical to the header */
+.pz-shade { position: absolute; inset: 0; background: rgba(255,255,255,.6); } /* light wash keeps black text readable over a hero photo */
 .pz-hero-body { position: relative; text-align: center; padding: 64px 24px 32px; } /* was 140px top / 40px bottom */
 .pz-hero-body .pz-label { color: rgba(246,242,234,.8); }
 .pz-facts { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(0,0,0,.14); }
