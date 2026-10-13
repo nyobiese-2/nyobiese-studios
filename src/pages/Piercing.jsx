@@ -9,7 +9,6 @@ const PAGE = {
     title: ["Calm hands.", "Careful work.", "Lasting adornment."],
     sub: "A quiet, sterile room and an unhurried approach to every single piercing.",
     primary: { label: "Book a session", href: "#" },
-   
     facts: [
       { big: "5.0", small: "Client rating" },
       { big: "100%", small: "Sterile setup" },
@@ -26,7 +25,7 @@ const PAGE = {
       { tag: "Step four", head: "The healing", text: "You leave with written aftercare, can message us while you heal, and get follow-up checks at no extra charge." },
     ],
   },
-  gallery: { label: "Recent pieces", title: "Our latest work.", link: { label: "See the full gallery", href: "#" }, count: 5 },
+  gallery: { label: "Recent pieces", title: "Our latest work.", count: 5 },
   materials: {
     label: "Jewellery",
     title: ["Only the safest", "metals touch your skin."],
@@ -90,7 +89,6 @@ export default function Piercings() {
           <p className="pz-lead">{hero.sub}</p>
           <div className="pz-actions">
             <a className="pz-btn" href={hero.primary.href}>{hero.primary.label}</a>
-            <a className="pz-textlink" href={hero.secondary.href}>{hero.secondary.label}</a>
           </div>
         </div>
         <ul className="pz-facts">
@@ -125,7 +123,6 @@ export default function Piercings() {
         <div className="pz-wrap">
           <header className="pz-head pz-head-row">
             <div><Label>{gallery.label}</Label><h2 className="pz-title">{gallery.title}</h2></div>
-            <a className="pz-textlink" href={gallery.link.href}>{gallery.link.label}</a>
           </header>
           <div className="pz-mosaic">
             {Array.from({ length: gallery.count }).map((_, i) => (
