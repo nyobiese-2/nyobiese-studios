@@ -1,29 +1,27 @@
 import { Link } from 'react-router-dom'
 import './Home.css'
+import useSiteImages from '../lib/useSiteImages'
 
-/* Put your image paths in `src` (e.g. '/work/lion.jpg').
-   Leave it as '' to show the placeholder. */
+/* Images are now managed from the admin page (Site images).
+   `slot` ties each spot to its upload; `src` is an optional fallback
+   used only when nothing has been uploaded for that slot. */
 const WORK = [
-  { label: 'Black & Grey', src: '', className: 'tile-large' },
-  { label: 'Fine Line',    src: '' },
-  { label: 'Black Work',   src: '' },
-  { label: 'Sleeve',       src: '' },
-  { label: 'Detail',       src: '' },
+  { label: 'Black & Grey', slot: 'home-work-1', src: '', className: 'tile-large' },
+  { label: 'Fine Line',    slot: 'home-work-2', src: '' },
+  { label: 'Black Work',   slot: 'home-work-3', src: '' },
+  { label: 'Sleeve',       slot: 'home-work-4', src: '' },
+  { label: 'Detail',       slot: 'home-work-5', src: '' },
 ]
 
-/* Set `src` on the image card (e.g. '/services/piercing.jpg').
-   Leave it as '' to show the placeholder. */
 const SERVICES = [
   { n: '01', title: 'Fine Line & Lettering', desc: 'Delicate linework, botanical detail and hand-drawn lettering', meta: 'From 2 hrs', to: '/tattoos/fine-line' },
   { n: '02', title: 'Realism', desc: 'Lifelike depth, rendered in ink', meta: 'Half-day sessions', to: '/tattoos/realism' },
   { n: '03', title: 'Blackwork & Geometric', desc: 'Bold, graphic, with an unmistakable presence', meta: 'Custom scale', to: '/tattoos/blackwork' },
   { n: '04', title: 'Colour Tattoos', desc: 'Rich, long-lasting colour applied with care and intention', meta: 'Multi-session', to: '/tattoos/colour', wide: true },
-  { n: '05', title: 'Piercings', image: true, src: '', to: '/piercing' },
+  { n: '05', title: 'Piercings', image: true, slot: 'home-service-piercing', src: '', to: '/piercing' },
 ]
 
-/* Set `src` to the artist photo (e.g. '/shawn.jpg').
-   Leave it as '' to show the placeholder. */
-const ARTIST = { src: '' }
+const ARTIST = { slot: 'home-artist', src: '' }
 
 /* Edit the reviews here. */
 const REVIEWS = [
@@ -32,17 +30,15 @@ const REVIEWS = [
   { text: 'I booked a piercing and the whole visit was flawless. The jewellery is truly premium, the placement is spot on, and the aftercare advice made healing effortless.' },
 ]
 
-/* Gallery: set `src` to an image path (e.g. '/gallery/lion.jpg').
-   Leave it as '' to show the placeholder.
-   `href` is optional (e.g. an Instagram post link).
+/* Gallery: `href` is optional (e.g. an Instagram post link).
    `multi: true` shows the small "multiple photos" icon. */
 const GALLERY = [
-  { src: '', alt: 'Tattoo 1', href: '', multi: true },
-  { src: '', alt: 'Tattoo 2', href: '' },
-  { src: '', alt: 'Tattoo 3', href: '' },
-  { src: '', alt: 'Tattoo 4', href: '' },
-  { src: '', alt: 'Tattoo 5', href: '' },
-  { src: '', alt: 'Tattoo 6', href: '' },
+  { slot: 'home-gallery-1', src: '', alt: 'Tattoo 1', href: '', multi: true },
+  { slot: 'home-gallery-2', src: '', alt: 'Tattoo 2', href: '' },
+  { slot: 'home-gallery-3', src: '', alt: 'Tattoo 3', href: '' },
+  { slot: 'home-gallery-4', src: '', alt: 'Tattoo 4', href: '' },
+  { slot: 'home-gallery-5', src: '', alt: 'Tattoo 5', href: '' },
+  { slot: 'home-gallery-6', src: '', alt: 'Tattoo 6', href: '' },
 ]
 
 /* Page 7: the four steps in the "How it works" panel. */
@@ -54,6 +50,9 @@ const STEPS = [
 ]
 
 export default function Home() {
+  const images = useSiteImages()
+  const pick = item => images[item.slot] || item.src
+
   return (
     <>
       {/* ===== Page 1: Hero ===== */}
@@ -96,7 +95,7 @@ export default function Home() {
         </a>
       </section>
 
-      {/* ===== Page 2: The work (image placeholders) ===== */}
+      {/* ===== Page 2: The work ===== */}
       <section className="work">
         <div className="work-head">
           <h2>The work.</h2>
@@ -106,8 +105,8 @@ export default function Home() {
         <div className="work-grid">
           {WORK.map(w => (
             <figure key={w.label} className={`work-tile ${w.className || ''}`}>
-              {w.src ? (
-                <img src={w.src} alt={`${w.label} tattoo`} />
+              {pick(w) ? (
+                <img src={pick(w)} alt={`${w.label} tattoo`} />
               ) : (
                 <div className="work-placeholder">Image placeholder</div>
               )}
@@ -138,8 +137,8 @@ export default function Home() {
               className={`svc ${s.wide ? 'svc-wide' : ''} ${s.image ? 'svc-image' : ''}`}
             >
               {s.image && (
-                s.src
-                  ? <img className="svc-img" src={s.src} alt={s.title} />
+                pick(s)
+                  ? <img className="svc-img" src={pick(s)} alt={s.title} />
                   : <div className="svc-img svc-placeholder">Image placeholder</div>
               )}
               <span className="svc-num">{s.n}</span>
@@ -160,8 +159,8 @@ export default function Home() {
       {/* ===== Page 4: The artist ===== */}
       <section className="artist">
         <figure className="artist-photo">
-          {ARTIST.src ? (
-            <img src={ARTIST.src} alt="Perez K Jordan at work in the studio" />
+          {pick(ARTIST) ? (
+            <img src={pick(ARTIST)} alt="Perez K Jordan at work in the studio" />
           ) : (
             <div className="artist-placeholder">Image placeholder</div>
           )}
@@ -232,7 +231,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Page 6: Gallery (image placeholders) ===== */}
+      {/* ===== Page 6: Gallery ===== */}
       <section className="gallery">
         <div className="gallery-grid">
           {GALLERY.map((g, i) => (
@@ -244,8 +243,8 @@ export default function Home() {
               className="gallery-tile"
               aria-label={g.alt}
             >
-              {g.src ? (
-                <img src={g.src} alt={g.alt} />
+              {pick(g) ? (
+                <img src={pick(g)} alt={g.alt} />
               ) : (
                 <div className="gallery-placeholder">Image placeholder</div>
               )}
