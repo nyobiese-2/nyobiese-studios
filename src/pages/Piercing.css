@@ -6,7 +6,7 @@
   --pz-sand: #f0e8de;
   --pz-stone: #e6e1d8;
   --pz-green: #2b342d;
-  --pz-header: #0a0a0a; /* matches the header: rgba(10,10,10,.95) */
+  --pz-header: var(--bg, #0a0a0a); /* same base colour the header sits on */
   --pz-night: #15110d;
   --pz-gold: #b9a263;
   --pz-ink: #2a2d29;
@@ -82,11 +82,12 @@
   display: grid;
   grid-template-rows: auto auto;
   overflow: hidden;
-  background: var(--pz-header);        /* matches the header colour */
+  /* same recipe as the desktop header: rgba(10,10,10,.95) over the page background */
+  background: linear-gradient(rgba(10,10,10,.95), rgba(10,10,10,.95)), var(--pz-header);
 }
 .pz-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pz-hero .pz-ph { background: transparent; color: transparent; } /* hide placeholder gradient */
-.pz-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.35), rgba(10,10,10,.6)); }
+.pz-shade { position: absolute; inset: 0; background: none; } /* no tint, so the hero colour stays identical to the header */
 .pz-hero-body { position: relative; text-align: center; padding: 64px 24px 32px; } /* was 140px top / 40px bottom */
 .pz-hero-body .pz-label { color: rgba(246,242,234,.8); }
 .pz-facts { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.18); }
@@ -148,4 +149,5 @@
   .pz-tile-1 { grid-column: 1 / 3; grid-row: span 2; }
   .pz-actions { flex-direction: column; gap: 20px; }
   .pz-hero-body { padding: 48px 20px 24px; }
+  .pz-hero { background: var(--pz-header); } /* phone header uses var(--bg) directly */
 }
