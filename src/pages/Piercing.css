@@ -96,6 +96,16 @@
 .pz-facts strong { display: block; font-size: 26px; color: var(--pz-gold); }
 .pz-facts span { color: rgba(246,242,234,.75); }
 
+/* First page text: all black */
+.pz-hero .pz-label,
+.pz-hero .pz-display,
+.pz-hero .pz-display em,
+.pz-hero .pz-lead,
+.pz-hero .pz-btn,
+.pz-hero .pz-textlink,
+.pz-hero .pz-facts strong,
+.pz-hero .pz-facts span { color: #000; }
+
 /* ============ 2. Steps track ============ */
 .pz-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
 .pz-track::before { content: ""; position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: var(--pz-line); }
