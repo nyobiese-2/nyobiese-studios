@@ -6,7 +6,7 @@
   --pz-sand: #f0e8de;
   --pz-stone: #e6e1d8;
   --pz-green: #2b342d;
-  --pz-header: #2b342d; /* <- hero background: set this to your header colour */
+  --pz-header: #0a0a0a; /* matches the header: rgba(10,10,10,.95) */
   --pz-night: #15110d;
   --pz-gold: #b9a263;
   --pz-ink: #2a2d29;
@@ -86,7 +86,7 @@
 }
 .pz-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .pz-hero .pz-ph { background: transparent; color: transparent; } /* hide placeholder gradient */
-.pz-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(43,52,45,.55), rgba(43,52,45,.85)); }
+.pz-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.35), rgba(10,10,10,.6)); }
 .pz-hero-body { position: relative; text-align: center; padding: 64px 24px 32px; } /* was 140px top / 40px bottom */
 .pz-hero-body .pz-label { color: rgba(246,242,234,.8); }
 .pz-facts { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.18); }
