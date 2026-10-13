@@ -9,7 +9,7 @@ const PAGE = {
     title: ["Calm hands.", "Careful work.", "Lasting adornment."],
     sub: "A quiet, sterile room and an unhurried approach to every single piercing.",
     primary: { label: "Book a session", href: "#" },
-    secondary: { label: "Follow on Instagram", href: "#" },
+   
     facts: [
       { big: "5.0", small: "Client rating" },
       { big: "100%", small: "Sterile setup" },
