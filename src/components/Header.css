@@ -23,7 +23,7 @@
 .burger { display: none; background: none; border: 0; color: var(--gold); font-size: 1.6rem; cursor: pointer; margin-left: 1rem; }
 
 /* Phone-only pieces stay hidden on desktop */
-.clock, .nav-extra { display: none; }
+.nav-extra { display: none; }
 
 
 /* ---------- Phone ---------- */
@@ -37,7 +37,6 @@
     --m-muted: #6f6f69;
     --m-muted: color-mix(in srgb, var(--text) 45%, var(--bg));
     --m-line: var(--line);
-    --m-clock: var(--m-muted);
     --m-gold: var(--gold, #c4a164);
     --m-serif: 'Cormorant Garamond', var(--serif), Georgia, serif;
     --m-mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -49,9 +48,8 @@
     -webkit-backdrop-filter: none;
   }
 
-  /* Header bar: logo . . . clock  [burger / X] */
+  /* Header bar: logo . . . [burger / X] */
   .header .logo,
-  .header .clock,
   .header .burger { position: relative; z-index: 2; }
 
   .header .logo {
@@ -59,30 +57,21 @@
     letter-spacing: .03em;
   }
 
-  .header .clock {
-    display: block;
-    margin-left: auto;
-    font: 400 .72rem/1 var(--m-mono);
-    letter-spacing: .06em;
-    color: var(--m-clock);
-    white-space: nowrap;
-  }
-
   .header .book-btn { display: none; } /* lives inside the menu on phones */
 
   .header .burger {
     display: grid;
     place-items: center;
-    width: 40px;
-    height: 40px;
-    margin: 0 -.5rem 0 .9rem;
+    width: 44px;
+    height: 44px;
+    margin: 0 -.5rem 0 auto; /* auto left margin pins the button to the right edge */
     padding: 0;
     background: none;
     border: 0;
     color: var(--m-ink);
     cursor: pointer;
   }
-  .header .burger svg { width: 24px; height: 24px; }
+  .header .burger svg { width: 28px; height: 28px; }
 
   /* Full-screen menu panel */
   .header .nav {
@@ -208,8 +197,6 @@
 /* Very small phones */
 @media (max-width: 380px) {
   .header .logo { font-size: 1.25rem; }
-  .header .clock { font-size: .64rem; letter-spacing: .03em; }
-  .header .burger { margin-left: .5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
