@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Piercing.css";
+import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Content (edit freely) ---------- */
 const PAGE = {
@@ -71,6 +72,7 @@ const Title = ({ lines, tag: T = "h2", className = "" }) => (
 
 export default function Piercings() {
   const [active, setActive] = useState(0);
+  const images = useSiteImages();
   const { hero, steps, gallery, materials, person, standards, cta } = PAGE;
   const m = materials.tabs[active];
 
@@ -78,7 +80,7 @@ export default function Piercings() {
     <main className="pz">
       {/* 1. Hero: centred, dark photo */}
       <section className="pz-hero pz-dark-photo">
-        <Img className="pz-fill" alt="Studio suite" label="Placeholder · hero photo" />
+        <Img className="pz-fill" src={images["piercing-hero"]} alt="Studio suite" label="Placeholder · hero photo" />
         <div className="pz-shade" />
         <div className="pz-hero-body">
           <Label>{hero.label}</Label>
@@ -127,7 +129,13 @@ export default function Piercings() {
           </header>
           <div className="pz-mosaic">
             {Array.from({ length: gallery.count }).map((_, i) => (
-              <Img key={i} className={`pz-tile pz-tile-${i + 1}`} alt={`Gallery image ${i + 1}`} label={`Placeholder · image ${i + 1}`} />
+              <Img
+                key={i}
+                className={`pz-tile pz-tile-${i + 1}`}
+                src={images[`piercing-gallery-${i + 1}`]}
+                alt={`Gallery image ${i + 1}`}
+                label={`Placeholder · image ${i + 1}`}
+              />
             ))}
           </div>
         </div>
@@ -158,7 +166,7 @@ export default function Piercings() {
 
       {/* 5. Practitioner: centred on dark green */}
       <section className="pz-green pz-section pz-person">
-        <Img className="pz-avatar" alt={person.name} label="Photo" />
+        <Img className="pz-avatar" src={images["piercing-person"]} alt={person.name} label="Photo" />
         <Label>{person.label}</Label>
         <h2 className="pz-title">{person.name}</h2>
         <p className="pz-tag">{person.role}</p>
