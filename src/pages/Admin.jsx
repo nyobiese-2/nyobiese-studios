@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
 import { STYLES } from '../styles'
+import SiteImagesAdmin from '../components/SiteImagesAdmin'
 import './Admin.css'
 
 function Login() {
@@ -212,8 +213,11 @@ export default function Admin() {
       <div className="admin-tabs">
         <button className={tab === 'bookings' ? 'active' : ''} onClick={() => setTab('bookings')}>Bookings</button>
         <button className={tab === 'gallery' ? 'active' : ''} onClick={() => setTab('gallery')}>Gallery uploads</button>
+        <button className={tab === 'images' ? 'active' : ''} onClick={() => setTab('images')}>Site images</button>
       </div>
-      {tab === 'bookings' ? <Bookings /> : <GalleryManager />}
+      {tab === 'bookings' && <Bookings />}
+      {tab === 'gallery' && <GalleryManager />}
+      {tab === 'images' && <SiteImagesAdmin />}
     </section>
   )
 }
