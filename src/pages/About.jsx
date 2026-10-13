@@ -61,7 +61,7 @@ const STUDIO = {
     by: `${ARTIST} · On shaping the space`,
   },
   name: {
-    big: ["FADED", "-Ink"],
+    big: ["FADED", "Ink"],
     defs: [
       {
         term: "Ink",
