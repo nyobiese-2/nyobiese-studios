@@ -309,7 +309,7 @@ export default function Home() {
                 understood exactly what I wanted from the first message.”
               </blockquote>
               <figcaption>
-                <span>Verified client · Nairobi</span>
+                <span>Verified client · Louisville</span>
                 <i aria-hidden="true" />
                 <b aria-label="5 out of 5 stars">★★★★★</b>
               </figcaption>
