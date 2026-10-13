@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./About.css";
+import useSiteImages from "../lib/useSiteImages";
 
 /* ---------- Edit these first ---------- */
 const ARTIST = "Artist Name";          // founder / tattoo artist
 const CITY = "Nairobi";
-const STUDIO_IMG = "/studio.jpg";      // put the file in /public, or set to "" for a placeholder
-const ARTIST_IMG = "";                 // e.g. "/artist.jpg" once the photo is in /public
+/* Fallbacks only: an image uploaded in the admin (Site images) takes priority */
+const STUDIO_IMG = "/studio.jpg";
+const ARTIST_IMG = "";
 
 /* ---------- Page content ---------- */
 const STUDIO = {
@@ -104,6 +106,7 @@ const Eyebrow = ({ children }) => (
 
 export default function About() {
   const { labels, hero, origin, philosophy, quote, name, artist } = STUDIO;
+  const images = useSiteImages();
 
   return (
     <main className="ab">
@@ -164,7 +167,12 @@ export default function About() {
 
       {/* 4. Full-bleed image band with quote */}
       <section className="ab-band">
-        <Img src={STUDIO_IMG} className="ab-band-img" alt="Inside the studio" label="Placeholder · studio interior (wide)" />
+        <Img
+          src={images["about-studio"] || STUDIO_IMG}
+          className="ab-band-img"
+          alt="Inside the studio"
+          label="Placeholder · studio interior (wide)"
+        />
         <div className="ab-band-shade" />
         <figure className="ab-wrap ab-quote">
           <blockquote>{quote.text}</blockquote>
@@ -194,7 +202,11 @@ export default function About() {
       {/* 6. The artist */}
       <section className="ab-artist ab-wrap">
         <figure className="ab-portrait">
-          <Img src={ARTIST_IMG} alt="The artist at work" label="Placeholder · artist portrait" />
+          <Img
+            src={images["about-artist"] || ARTIST_IMG}
+            alt="The artist at work"
+            label="Placeholder · artist portrait"
+          />
           <figcaption>
             <i className="ab-dash" />
             <span>{artist.caption[0]}</span>
