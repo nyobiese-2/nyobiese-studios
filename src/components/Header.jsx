@@ -3,45 +3,10 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { STYLES } from '../styles'
 import './Header.css'
 
-const clockFmt = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'Africa/Nairobi',
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: true,
-})
-const nairobiTime = () => `nbi · ${clockFmt.format(new Date()).toLowerCase()}`
-
-/* true only on desktop widths (same breakpoint as the burger menu) */
-function useIsDesktop() {
-  const query = '(min-width: 901px)'
-  const [isDesktop, setIsDesktop] = useState(() => window.matchMedia(query).matches)
-  useEffect(() => {
-    const mq = window.matchMedia(query)
-    const onChange = e => setIsDesktop(e.matches)
-    mq.addEventListener('change', onChange)
-    return () => mq.removeEventListener('change', onChange)
-  }, [])
-  return isDesktop
-}
-
-/* the clock only ticks while it is enabled, so phones never run it */
-function useClock(enabled) {
-  const [time, setTime] = useState(nairobiTime)
-  useEffect(() => {
-    if (!enabled) return
-    setTime(nairobiTime())
-    const id = setInterval(() => setTime(nairobiTime()), 15000)
-    return () => clearInterval(id)
-  }, [enabled])
-  return time
-}
-
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [drop, setDrop] = useState(false)
   const { pathname } = useLocation()
-  const isDesktop = useIsDesktop()
-  const time = useClock(isDesktop)
 
   // close everything after navigating
   useEffect(() => { setOpen(false); setDrop(false) }, [pathname])
@@ -92,7 +57,6 @@ export default function Header() {
         </div>
       </nav>
 
-      {isDesktop && <span className="clock">{time}</span>}
       <Link to="/book" className="btn book-btn">book now</Link>
 
       <button
