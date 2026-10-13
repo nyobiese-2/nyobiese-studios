@@ -174,7 +174,7 @@ export default function Home() {
             <em>Jordan</em>
           </h2>
 
-          <p className="artist-role">Founder · Tattoo artist · Nyobiese Studios</p>
+          <p className="artist-role">Founder · Tattoo artist · Faded-Ink Studios</p>
           <span className="artist-rule" aria-hidden="true" />
 
           <blockquote className="artist-quote">
