@@ -1,153 +1,192 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400&family=Space+Mono&display=swap");
+import { useState } from "react";
+import "./Piercing.css";
 
-/* ============ Tokens: fonts + backgrounds matched to the reference ============ */
-.pz {
-  --pz-paper: #f5f4f1;
-  --pz-sand: #f0e8de;
-  --pz-stone: #e6e1d8;
-  --pz-green: #2b342d;
-  --pz-header: var(--bg, #0a0a0a); /* same base colour the header sits on */
-  --pz-night: #15110d;
-  --pz-gold: #b9a263;
-  --pz-ink: #2a2d29;
-  --pz-muted: #5a564e;
-  --pz-ink-soft: #4a4a44;
-  --pz-gold-deep: #7c682d;
-  --pz-line: rgba(42, 45, 41, .16);
-  --pz-display: "Cormorant Garamond", Georgia, serif;
-  --pz-body: "DM Sans", system-ui, sans-serif;
-  --pz-mono: "Space Mono", ui-monospace, monospace;
+/* ---------- Content (edit freely) ---------- */
+const PAGE = {
+  hero: {
+    label: "The piercing suite",
+    title: ["Calm hands.", "Careful work.", "Lasting adornment."],
+    sub: "A quiet, sterile room and an unhurried approach to every single piercing.",
+    primary: { label: "Book a session", href: "#" },
+    secondary: { label: "Follow on Instagram", href: "#" },
+    facts: [
+      { big: "5.0", small: "Client rating" },
+      { big: "100%", small: "Sterile setup" },
+      { big: "Appt.", small: "Bookings only" },
+    ],
+  },
+  steps: {
+    label: "How it works",
+    title: ["Four steps,", "from enquiry to healed."],
+    items: [
+      { tag: "Step one", head: "The enquiry", text: "Tell us where you are thinking of, send any reference photos and ask your questions by form or WhatsApp. Nothing is too small to ask." },
+      { tag: "Step two", head: "The consultation", text: "We look at your anatomy, choose the jewellery together and mark the spot before anything begins. No rushing." },
+      { tag: "Step three", head: "The piercing", text: "The room is ready, the tools are sterile and single-use, and one steady movement places your jewellery." },
+      { tag: "Step four", head: "The healing", text: "You leave with written aftercare, can message us while you heal, and get follow-up checks at no extra charge." },
+    ],
+  },
+  gallery: { label: "Recent pieces", title: "Our latest work.", link: { label: "See the full gallery", href: "#" }, count: 5 },
+  materials: {
+    label: "Jewellery",
+    title: ["Only the safest", "metals touch your skin."],
+    intro: "Everything we fit is chosen to heal well and stay comfortable for years to come.",
+    tabs: [
+      { tab: "Titanium", symbol: "Ti", tag: "Implant grade", head: "Implant titanium", text: "Light, hypoallergenic and available in a range of finishes. It is our first choice for every fresh piercing." },
+      { tab: "Steel", symbol: "Fe", tag: "Durable and body-safe", head: "Surgical steel 316L", text: "A strong, affordable steel that suits healed piercings and everyday wear without fuss." },
+      { tab: "Nickel-free", symbol: "Ni", tag: "Gentle on sensitive skin", head: "Our nickel-free promise", text: "We test every piece for nickel before it is stocked. If your skin reacts to metals, we will help you choose before we begin." },
+    ],
+  },
+  person: {
+    label: "Your piercer",
+    name: "Piercer name",
+    role: "Resident body piercer",
+    quote: "Choosing jewellery is a small ritual of looking after yourself.",
+    primary: { label: "Book an appointment", href: "#" },
+  },
+  standards: {
+    label: "Our promise",
+    title: ["Clear standards,", "no guesswork."],
+    items: [
+      { head: "Quality jewellery", text: "Only implant-grade pieces, checked before they ever reach you." },
+      { head: "A clean room", text: "Sterile tools opened in front of you, with every surface cleaned between clients." },
+      { head: "Talk before we start", text: "A proper conversation first, so you know exactly what will happen." },
+      { head: "Support afterwards", text: "Clear written guidance, and we stay reachable for as long as you heal." },
+    ],
+  },
+  cta: { title: ["Ready when you are.", "Book your session."], note: "By appointment only. Send us a message to find a time that suits you.", button: { label: "Book a session", href: "#" } },
+};
 
-  font-family: var(--pz-body);
-  color: var(--pz-ink);
+/* Placeholder-aware image: pass `src` for a real photo */
+function Img({ src, alt, label, className = "" }) {
+  return src ? (
+    <img className={`pz-img ${className}`} src={src} alt={alt} />
+  ) : (
+    <div className={`pz-img pz-ph ${className}`} role="img" aria-label={alt}><span>{label}</span></div>
+  );
 }
-.pz *, .pz *::before, .pz *::after { box-sizing: border-box; }
-.pz h1, .pz h2, .pz h3, .pz p, .pz ul, .pz ol, .pz figure, .pz blockquote { margin: 0; padding: 0; }
-.pz ul, .pz ol { list-style: none; }
+const Label = ({ children }) => <p className="pz-label"><i />{children}</p>;
+const Title = ({ lines, tag: T = "h2", className = "" }) => (
+  <T className={`pz-title ${className}`}>{lines[0]}<br /><em>{lines[1]}</em></T>
+);
 
-/* ============ Backgrounds ============ */
-.pz-paper { background: var(--pz-paper); }
-.pz-sand  { background: var(--pz-sand); }
-.pz-stone {
-  background: var(--pz-stone)
-    repeating-linear-gradient(135deg, rgba(255,255,255,.18) 0 1px, transparent 1px 7px);
-}
-.pz-mandala {
-  background: var(--pz-paper)
-    repeating-radial-gradient(circle at 50% 120%, rgba(42,45,41,.045) 0 1px, transparent 1px 38px);
-}
-.pz-green { background: var(--pz-green); color: #f1eee6; }
-.pz-gold  { background: var(--pz-gold); color: var(--pz-night); }
-.pz-dark-photo { background: var(--pz-night); color: #f6f2ea; }
+export default function Piercings() {
+  const [active, setActive] = useState(0);
+  const { hero, steps, gallery, materials, person, standards, cta } = PAGE;
+  const m = materials.tabs[active];
 
-/* ============ Type ============ */
-.pz-display, .pz-title, .pz-h3, .pz-symbol, .pz-facts strong, .pz-person blockquote { font-family: var(--pz-display); font-weight: 300; }
-.pz-display { font-size: clamp(48px, 7vw, 92px); line-height: 1.02; }
-.pz-title { font-size: clamp(32px, 4vw, 52px); line-height: 1.1; }
-.pz-h3 { font-size: 24px; line-height: 1.2; margin: 6px 0 10px; }
-.pz em { font-style: italic; color: var(--pz-ink-soft); }
-.pz-title, .pz-h3, .pz-display { color: var(--pz-ink); font-weight: 400; }
-.pz-green .pz-title, .pz-green .pz-h3, .pz-green em, .pz-dark-photo .pz-display, .pz-dark-photo em { color: #f6f2ea; }
-.pz-dark-photo em, .pz-green em { color: #d9d3c4; }
-.pz-gold .pz-title, .pz-gold em { color: var(--pz-night); }
-.pz-gold em { opacity: 1; }
-.pz-label, .pz-tag, .pz-facts span, .pz-btn, .pz-textlink, .pz-tabs button { font-family: var(--pz-mono); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; }
-.pz-label { color: var(--pz-ink-soft); margin-bottom: 14px; }
-.pz-label i { display: inline-block; width: 28px; height: 1px; background: var(--pz-gold); vertical-align: middle; margin-right: 12px; }
-.pz-tag { color: var(--pz-gold-deep); }
-.pz-green .pz-tag, .pz-dark-photo .pz-tag { color: var(--pz-gold); }
-.pz-body { font-size: 14px; line-height: 1.85; color: var(--pz-muted); font-weight: 400; max-width: 46ch; }
-.pz .pz-lead { font-size: 15px; line-height: 1.8; max-width: 46ch; margin: 20px auto 0; text-align: center; color: #e8e3d8; }
-.pz-narrow { margin-top: 18px; }
+  return (
+    <main className="pz">
+      {/* 1. Hero: centred, dark photo */}
+      <section className="pz-hero pz-dark-photo">
+        <Img className="pz-fill" alt="Studio suite" label="Placeholder · hero photo" />
+        <div className="pz-shade" />
+        <div className="pz-hero-body">
+          <Label>{hero.label}</Label>
+          <h1 className="pz-display">
+            {hero.title[0]}<br />{hero.title[1]}<br /><em>{hero.title[2]}</em>
+          </h1>
+          <p className="pz-lead">{hero.sub}</p>
+          <div className="pz-actions">
+            <a className="pz-btn" href={hero.primary.href}>{hero.primary.label}</a>
+            <a className="pz-textlink" href={hero.secondary.href}>{hero.secondary.label}</a>
+          </div>
+        </div>
+        <ul className="pz-facts">
+          {hero.facts.map((f, i) => (
+            <li key={i}><strong>{f.big}</strong><span>{f.small}</span></li>
+          ))}
+        </ul>
+      </section>
 
-/* ============ Shared layout ============ */
-.pz-wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 68px); }
-.pz-section { padding-block: clamp(56px, 8vw, 110px); }
-.pz-head { margin-bottom: 48px; }
-.pz-head-center { text-align: center; }
-.pz-head-center .pz-label { justify-content: center; }
-.pz-head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
+      {/* 2. Steps: horizontal track */}
+      <section className="pz-paper pz-section">
+        <div className="pz-wrap">
+          <header className="pz-head pz-head-center">
+            <Label>{steps.label}</Label>
+            <Title lines={steps.title} />
+          </header>
+          <ol className="pz-track">
+            {steps.items.map((s, i) => (
+              <li key={i}>
+                <span className="pz-dot" />
+                <p className="pz-tag">{s.tag}</p>
+                <h3 className="pz-h3">{s.head}</h3>
+                <p className="pz-body">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-/* ============ Buttons ============ */
-.pz-btn { display: inline-block; background: var(--pz-gold); color: #fff; padding: 18px 30px; text-decoration: none; }
-.pz-btn-dark { background: var(--pz-night); color: var(--pz-gold); }
-.pz-textlink { color: inherit; text-decoration: none; border-bottom: 1px solid var(--pz-gold); padding-bottom: 4px; }
-.pz-btn:focus-visible, .pz-textlink:focus-visible, .pz-tabs button:focus-visible { outline: 2px solid var(--pz-gold); outline-offset: 3px; }
-.pz-actions { display: flex; justify-content: center; align-items: center; gap: 28px; margin-top: 28px; }
+      {/* 3. Gallery: asymmetric mosaic */}
+      <section className="pz-sand pz-section">
+        <div className="pz-wrap">
+          <header className="pz-head pz-head-row">
+            <div><Label>{gallery.label}</Label><h2 className="pz-title">{gallery.title}</h2></div>
+            <a className="pz-textlink" href={gallery.link.href}>{gallery.link.label}</a>
+          </header>
+          <div className="pz-mosaic">
+            {Array.from({ length: gallery.count }).map((_, i) => (
+              <Img key={i} className={`pz-tile pz-tile-${i + 1}`} alt={`Gallery image ${i + 1}`} label={`Placeholder · image ${i + 1}`} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-/* ============ 1. Hero (reduced spacing, header-matched background) ============ */
-.pz-hero {
-  position: relative;
-  min-height: 0;                       /* was 100vh: removes the extra blank space */
-  display: grid;
-  grid-template-rows: auto auto;
-  overflow: hidden;
-  /* same recipe as the desktop header: rgba(10,10,10,.95) over the page background */
-  background: linear-gradient(rgba(10,10,10,.95), rgba(10,10,10,.95)), var(--pz-header);
-}
-.pz-fill { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.pz-hero .pz-ph { background: transparent; color: transparent; } /* hide placeholder gradient */
-.pz-shade { position: absolute; inset: 0; background: none; } /* no tint, so the hero colour stays identical to the header */
-.pz-hero-body { position: relative; text-align: center; padding: 64px 24px 32px; } /* was 140px top / 40px bottom */
-.pz-hero-body .pz-label { color: rgba(246,242,234,.8); }
-.pz-facts { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.18); }
-.pz-facts li { padding: 14px 12px; text-align: center; border-left: 1px solid rgba(255,255,255,.12); }
-.pz-facts li:first-child { border-left: 0; }
-.pz-facts strong { display: block; font-size: 26px; color: var(--pz-gold); }
-.pz-facts span { color: rgba(246,242,234,.75); }
+      {/* 4. Materials: tabs + single panel */}
+      <section className="pz-stone pz-section">
+        <div className="pz-wrap pz-split">
+          <div>
+            <Label>{materials.label}</Label>
+            <Title lines={materials.title} />
+            <p className="pz-body pz-narrow">{materials.intro}</p>
+            <div className="pz-tabs" role="tablist">
+              {materials.tabs.map((t, i) => (
+                <button key={i} role="tab" aria-selected={i === active}
+                  className={i === active ? "is-on" : ""} onClick={() => setActive(i)}>{t.tab}</button>
+              ))}
+            </div>
+          </div>
+          <article className="pz-panel" role="tabpanel">
+            <span className="pz-symbol">{m.symbol}</span>
+            <p className="pz-tag">{m.tag}</p>
+            <h3 className="pz-h3">{m.head}</h3>
+            <p className="pz-body">{m.text}</p>
+          </article>
+        </div>
+      </section>
 
-/* ============ 2. Steps track ============ */
-.pz-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
-.pz-track::before { content: ""; position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: var(--pz-line); }
-.pz-track li { position: relative; padding-top: 36px; }
-.pz-dot { position: absolute; top: 0; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--pz-paper); border: 1px solid var(--pz-gold); }
+      {/* 5. Practitioner: centred on dark green */}
+      <section className="pz-green pz-section pz-person">
+        <Img className="pz-avatar" alt={person.name} label="Photo" />
+        <Label>{person.label}</Label>
+        <h2 className="pz-title">{person.name}</h2>
+        <p className="pz-tag">{person.role}</p>
+        <blockquote>{person.quote}</blockquote>
+        <a className="pz-btn" href={person.primary.href}>{person.primary.label}</a>
+      </section>
 
-/* ============ 3. Mosaic ============ */
-.pz-mosaic { display: grid; grid-template-columns: repeat(6, 1fr); grid-auto-rows: 150px; gap: 6px; }
-.pz-tile { width: 100%; height: 100%; object-fit: cover; }
-.pz-tile-1 { grid-column: 1 / 4; grid-row: 1 / 4; }
-.pz-tile-2 { grid-column: 4 / 7; grid-row: 1 / 3; }
-.pz-tile-3 { grid-column: 4 / 5; grid-row: 3 / 5; }
-.pz-tile-4 { grid-column: 5 / 7; grid-row: 3 / 5; }
-.pz-tile-5 { grid-column: 1 / 4; grid-row: 4 / 5; }
+      {/* 6. Standards: two-column list with ticks */}
+      <section className="pz-mandala pz-section">
+        <div className="pz-wrap">
+          <header className="pz-head"><Label>{standards.label}</Label><Title lines={standards.title} /></header>
+          <ul className="pz-checks">
+            {standards.items.map((s, i) => (
+              <li key={i}>
+                <span className="pz-tick" aria-hidden="true">✓</span>
+                <div><h3 className="pz-h3">{s.head}</h3><p className="pz-body">{s.text}</p></div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-/* ============ 4. Materials tabs ============ */
-.pz-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.pz-tabs { display: flex; gap: 8px; margin-top: 32px; flex-wrap: wrap; }
-.pz-tabs button { background: transparent; border: 1px solid var(--pz-line); color: var(--pz-muted); padding: 12px 18px; cursor: pointer; }
-.pz-tabs button.is-on { border-color: var(--pz-gold); color: var(--pz-ink); background: rgba(255,255,255,.4); }
-.pz-panel { background: rgba(255,255,255,.45); border: 1px solid var(--pz-gold); padding: 48px 40px; min-height: 320px; }
-.pz-symbol { display: block; font-size: 64px; font-style: italic; color: var(--pz-gold-deep); line-height: 1; margin-bottom: 20px; }
-
-/* ============ 5. Practitioner ============ */
-.pz-person { text-align: center; display: flex; flex-direction: column; align-items: center; }
-.pz-person .pz-label { color: rgba(241,238,230,.75); margin-top: 24px; }
-.pz-avatar { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; }
-.pz-person blockquote { max-width: 28ch; font-size: clamp(24px, 3vw, 34px); font-style: italic; line-height: 1.35; margin: 28px 0 36px; }
-
-/* ============ 6. Standards ============ */
-.pz-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
-.pz-checks li { display: flex; gap: 20px; padding: 28px 0; border-top: 1px solid var(--pz-line); }
-.pz-tick { flex: none; width: 28px; height: 28px; border: 1px solid var(--pz-gold-deep); color: var(--pz-gold-deep); display: grid; place-items: center; font-size: 12px; }
-
-/* ============ 7. CTA ============ */
-.pz-cta { text-align: center; padding: clamp(64px, 9vw, 120px) 24px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-
-.pz-cta p { font-size: 14px; max-width: 44ch; color: var(--pz-night); }
-
-/* ============ Placeholder image ============ */
-.pz-ph { display: grid; place-items: center; background: linear-gradient(135deg, #2b2824, #4a443d); color: rgba(255,255,255,.5); font: 9px var(--pz-mono); letter-spacing: .14em; text-transform: uppercase; text-align: center; padding: 12px; }
-
-/* ============ Responsive ============ */
-@media (max-width: 900px) {
-  .pz-track, .pz-checks, .pz-split { grid-template-columns: 1fr; }
-  .pz-track::before { display: none; }
-  .pz-split { gap: 36px; }
-  .pz-head-row { flex-direction: column; align-items: flex-start; }
-  .pz-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
-  .pz-tile-1, .pz-tile-2, .pz-tile-3, .pz-tile-4, .pz-tile-5 { grid-column: auto; grid-row: auto; }
-  .pz-tile-1 { grid-column: 1 / 3; grid-row: span 2; }
-  .pz-actions { flex-direction: column; gap: 20px; }
-  .pz-hero-body { padding: 48px 20px 24px; }
-  .pz-hero { background: var(--pz-header); } /* phone header uses var(--bg) directly */
+      {/* 7. Closing call to action */}
+      <section className="pz-gold pz-cta">
+        <Title lines={cta.title} className="pz-on-gold" />
+        <p>{cta.note}</p>
+        <a className="pz-btn pz-btn-dark" href={cta.button.href}>{cta.button.label}</a>
+      </section>
+    </main>
+  );
 }
