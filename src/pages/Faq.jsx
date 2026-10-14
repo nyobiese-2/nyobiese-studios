@@ -56,7 +56,7 @@ export default function Faq() {
         </div>
         <div className="faq-intro">
           <p>The questions we hear most, split between the practical side and the thinking behind the work. Take your time.</p>
-          <span className="faq-stamp">Nyobiese Studios · {new Date().getFullYear()}</span>
+          <span className="faq-stamp">Faded Ink Studios · {new Date().getFullYear()}</span>
         </div>
       </div>
 
